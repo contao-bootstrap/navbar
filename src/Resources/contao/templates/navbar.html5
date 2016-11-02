@@ -10,7 +10,7 @@
         data-target="navbar-responsive-<?= $this->id ?>"
         aria-controls="navbar-responsive-<?= $this->id ?>"
         aria-expanded="false"
-        aria-label="Toggle navigation">
+        aria-label="<?= $this->togglerLabel ?>">
     </button>
 <?php endif; ?>
 

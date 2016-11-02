@@ -1,0 +1,2 @@
+
+<a href="<?= $this->generateFrontendUrl($GLOBALS['objPage']->row()); ?>" class="navbar-brand"><?php echo $GLOBALS['objPage']->rootTitle; ?></a>

@@ -10,7 +10,7 @@
 /**
  * palettes
  */
-$GLOBALS['TL_DCA']['tl_module']['metapalettes']['bootstrap_navbar'] = array
+$GLOBALS['TL_DCA']['tl_module']['metapalettes']['navbar'] = array
 (
     'title'                     => array('name', 'type'),
     'config'                    => array('bootstrap_isResponsive', 'bootstrap_addBrand', 'bootstrap_navbarModules'),
@@ -66,21 +66,21 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarModules'] = array
     'exclude'                 => true,
     'inputType'               => 'multiColumnWizard',
     'eval'                    => array(
-        'tl_class'     => '" style="clear:both;',
+        'tl_class'     => 'clr',
         'columnFields' => array
         (
             'module'   => array
             (
                 'label'            => $GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarModules_module'],
                 'inputType'        => 'select',
-                'options_callback' => array('Netzmacht\Bootstrap\Core\Contao\DataContainer\Module', 'getAllModules'),
+                'options_callback' => array('ContaoBootstrap\Core\DataContainer\Module', 'getAllModules'),
                 'eval'             => array('style' => 'width: 250px', 'includeBlankOption' => true, 'chosen' => true),
             ),
             'cssClass' => array
             (
                 'label'     => $GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarModules_cssClass'],
                 'inputType' => 'text',
-                'eval'      => array('style' => 'width: 250px', 'rgxp' => 'txt'),
+                'eval'      => array('style' => 'width: 350px', 'rgxp' => 'txt'),
             ),
 
             'inactive' => array
@@ -101,7 +101,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarBrandTemplate'] = arr
     'exclude'                 => true,
     'inputType'               => 'select',
     'reference'               => &$GLOBALS['TL_LANG']['tl_module'],
-    'options_callback'        => array('Netzmacht\Bootstrap\Core\Contao\DataContainer\Module', 'getTemplates'),
+    'options_callback'        => array('ContaoBootstrap\Core\DataContainer\Module', 'getTemplates'),
     'eval'                    => array('templatePrefix' => 'navbar_brand', 'chosen' => true, 'tl_class' => 'clr'),
     'sql'                     => "varchar(64) NOT NULL default ''",
 );

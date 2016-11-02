@@ -1,7 +1,7 @@
 <!-- indexer::stop -->
 <nav class="navbar <?php echo $this->class;?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
     <div class="container">
-        <?php $this->insert('navbar'); ?>
+        <?php $this->insert('navbar', $this->getData()); ?>
     </div>
 </nav>
 <!-- indexer::continue -->
