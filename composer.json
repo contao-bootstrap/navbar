@@ -24,7 +24,7 @@
         "contao/core-bundle":"^4.3",
         "contao-bootstrap/core": "^2.0",
         "menatwork/contao-multicolumnwizard":"^3.3.4",
-        "contao-community-alliance/meta-paletes":"^1.10"
+        "contao-community-alliance/meta-palettes":"^1.10"
     },
     "require-dev": {
         "netzmacht/contao-build-tools": "~1.1"
