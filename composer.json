@@ -33,7 +33,7 @@
         "netzmacht/contao-bootstrap": "*"
     },
     "autoload": {
-        "psr-0": { "ContaoBootstrap\\Navbar": "src/" }
+        "psr-4": { "ContaoBootstrap\\Navbar\\": "src/" }
     },
     "extra":{
         "contao": {
