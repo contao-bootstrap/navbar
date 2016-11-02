@@ -1,0 +1,27 @@
+
+<?php if($this->bootstrap_addBrand): ?>
+    <?php $this->insert($this->bootstrap_navbarBrandTemplate); ?>
+<?php endif; ?>
+<?php if($this->bootstrap_isResponsive): ?>
+    <button
+        class="navbar-toggler hidden-<?= $this->togglerSize ?>-up"
+        type="button"
+        data-toggle="collapse"
+        data-target="navbar-responsive-<?= $this->id ?>"
+        aria-controls="navbar-responsive-<?= $this->id ?>"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+    </button>
+<?php endif; ?>
+
+<?php if($this->bootstrap_isResponsive): ?>
+<div class="collapse navbar-toggleable-<?= $this->toggleAbleSize ?>" id="navbar-responsive-<?php echo $this->id; ?>">
+<?php endif; ?>
+
+<?php foreach($this->modules as $module): ?>
+    <?php if($module['class']): ?><div class="<?php echo $module['class']; ?>"><?php endif; ?>
+    <?php echo $module['module']; ?>
+    <?php if($module['class']): ?></div><?php endif; ?>
+<?php endforeach; ?>
+
+<?php if($this->bootstrap_isResponsive): ?></div><?php endif; ?>

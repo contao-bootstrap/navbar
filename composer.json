@@ -1,0 +1,54 @@
+{
+    "name":"contao-bootstrap/navbar",
+    "description":"Bootstrap navbar component for Contao CMS",
+    "keywords":["bootstrap", "components", "contao", "navbar"],
+    "type":"contao-bundle",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"David Molineus",
+            "email":"mail@netzmacht.de",
+            "homepage":"http://www.netzmacht.de",
+            "role":"Project leader"
+        }
+    ],
+    "support":{
+        "email":"mail@netzmacht.de",
+        "issues":"https://github.com/contao-bootstrap/navigation/issues",
+        "wiki":"http://contao-bootstrap.netzmacht.de",
+        "source":"https://github.com/contao-bootstrap/navigation"
+    },
+    "require":{
+        "php":">=5.5.0",
+        "contao-community-alliance/composer-plugin": "~3.0",
+        "contao/core-bundle":"^4.3",
+        "contao-bootstrap/core": "^2.0",
+        "menatwork/contao-multicolumnwizard":"^3.3.4",
+        "contao-community-alliance/meta-paletes":"^1.10"
+    },
+    "require-dev": {
+        "netzmacht/contao-build-tools": "~1.1"
+    },
+    "conflict": {
+        "netzmacht/contao-bootstrap": "*"
+    },
+    "autoload": {
+        "psr-0": { "ContaoBootstrap\\Navbar": "src/" }
+    },
+    "extra":{
+        "contao": {
+            "transifex": {
+                "project": "contao-bootstrap",
+                "prefix": "navbar-",
+                "languages_cto": "src/Resources/contao/languages",
+                "languages_tx": ".tx"
+            }
+        },
+        "branch-alias": {
+            "dev-master": "2.0.x-dev",
+            "dev-develop": "2.1.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

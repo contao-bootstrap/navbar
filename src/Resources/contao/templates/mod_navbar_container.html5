@@ -1,0 +1,7 @@
+<!-- indexer::stop -->
+<nav class="navbar <?php echo $this->class;?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
+    <div class="container">
+        <?php $this->insert('navbar'); ?>
+    </div>
+</nav>
+<!-- indexer::continue -->
