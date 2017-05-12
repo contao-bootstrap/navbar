@@ -9,10 +9,6 @@
 
 namespace ContaoBootstrap\Navbar;
 
-use Contao\CoreBundle\ContaoCoreBundle;
-use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
-use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use ContaoBootstrap\Core\ContaoBootstrapCoreBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -22,14 +18,4 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class ContaoBootstrapNavbarBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getBundles(ParserInterface $parser)
-    {
-        $bundleConfig = BundleConfig::create(ContaoBootstrapNavbarBundle::class)
-            ->setLoadAfter([ContaoCoreBundle::class, ContaoBootstrapCoreBundle::class]);
-
-        return [$bundleConfig];
-    }
 }
