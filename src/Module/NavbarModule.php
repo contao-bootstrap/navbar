@@ -45,13 +45,17 @@ class NavbarModule extends Module
             }
         }
 
-        if ($this->cssID[1] == '') {
-            $cssID    = $this->cssID;
-            $cssID[1] = 'navbar-default';
+        $cssID= $this->cssID;
 
-            $this->cssID = $cssID;
+        if ($this->cssID[1] == '') {
+            $cssID[1] = 'navbar-light bg-faded';
         }
 
+        if ($this->bootstrap_isResponsive && $this->bootstrap_toggleableSize) {
+            $cssID[1] = trim($cssID[1]  . ' navbar-toggleable-' . $this->bootstrap_toggleableSize);
+        }
+
+        $this->cssID             = $cssID;
         $this->Template->modules = $modules;
     }
 
