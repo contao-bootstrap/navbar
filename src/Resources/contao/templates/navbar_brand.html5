@@ -1,2 +1,2 @@
 
-<a href="<?= $this->generateFrontendUrl($GLOBALS['objPage']->row()); ?>" class="navbar-brand"><?php echo $GLOBALS['objPage']->rootTitle; ?></a>
+<a href="{{env::url}}/" class="navbar-brand"><?php echo $GLOBALS['objPage']->rootTitle; ?></a>
