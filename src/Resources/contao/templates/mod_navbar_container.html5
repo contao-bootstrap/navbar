@@ -1,7 +1,6 @@
-<!-- indexer::stop -->
-<nav class="navbar <?php echo $this->class;?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
-    <div class="container">
-        <?php $this->insert('navbar', $this->getData()); ?>
-    </div>
-</nav>
-<!-- indexer::continue -->
+<?php $this->extend('mod_navbar'); ?>
+<?php $this->block('content'); ?>
+<div class="container">
+    <?php $this->parent(); ?>
+</div>
+<?php $this->endblock();
