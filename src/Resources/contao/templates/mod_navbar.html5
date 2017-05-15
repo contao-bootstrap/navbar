@@ -1,5 +1,5 @@
 <!-- indexer::stop -->
-<nav class="navbar navbar-toggleable-md <?php echo $this->class;?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
+<nav class="navbar <?php echo $this->class;?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
     <?php $this->block('content'); ?>
     <?php if($this->bootstrap_addBrand): ?>
         <?php $this->insert($this->bootstrap_navbarBrandTemplate); ?>
