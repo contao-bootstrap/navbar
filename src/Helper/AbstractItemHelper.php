@@ -36,7 +36,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
     /**
      * AbstractItemHelper constructor.
      *
-     * @param array $item
+     * @param array $item Navigation item.
      */
     public function __construct(array $item)
     {
@@ -65,16 +65,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         $title = $this->item['pageTitle'] ?: $this->item['title'];
         $this->setAttribute('title', $title);
 
-        if ($this->item['class']) {
-            $classes = trimsplit(' ', $this->item['class']);
-            foreach ($classes as $class) {
-                $this->itemClass[] = $class;
-            }
-
-            if (in_array('trail', $this->itemClass)) {
-                $this->itemClass[] = 'active';
-            }
-        }
+        $this->initializeItemClasses();
     }
 
     /**
@@ -95,5 +86,24 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
     public function getTag()
     {
         return $this->item['isActive'] ? 'strong' : 'a';
+    }
+
+    /**
+     * Initialize the item classes.
+     *
+     * @return void
+     */
+    private function initializeItemClasses()
+    {
+        if ($this->item['class']) {
+            $classes = trimsplit(' ', $this->item['class']);
+            foreach ($classes as $class) {
+                $this->itemClass[] = $class;
+            }
+
+            if (in_array('trail', $this->itemClass)) {
+                $this->itemClass[] = 'active';
+            }
+        }
     }
 }

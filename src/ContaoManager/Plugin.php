@@ -18,7 +18,7 @@ use ContaoBootstrap\Core\ContaoBootstrapCoreBundle;
 use ContaoBootstrap\Navbar\ContaoBootstrapNavbarBundle;
 
 /**
- * Class Plugin
+ * Contao manager plugin.
  *
  * @package ContaoBootstrap\Navbar\ContaoManager
  */

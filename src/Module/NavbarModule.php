@@ -13,7 +13,7 @@ namespace ContaoBootstrap\Navbar\Module;
 use Contao\Module;
 
 /**
- * Class NavbarModule
+ * Class NavbarModule.
  *
  * @package ContaoBootstrap\Navbar\Module
  */
@@ -45,7 +45,7 @@ class NavbarModule extends Module
             }
         }
 
-        $cssID= $this->cssID;
+        $cssID = $this->cssID;
 
         if ($this->cssID[1] == '') {
             $cssID[1] = 'navbar-light bg-faded';

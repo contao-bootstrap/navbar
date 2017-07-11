@@ -11,6 +11,7 @@
 
 namespace ContaoBootstrap\Navbar\Helper;
 
+use Contao\FrontendTemplate;
 use Netzmacht\Html\Attributes;
 
 /**
@@ -23,7 +24,7 @@ class NavigationHelper
     /**
      * Navigation item template.
      *
-     * @var \FrontendTemplate
+     * @var FrontendTemplate
      */
     private $template;
 
@@ -35,7 +36,7 @@ class NavigationHelper
     private $attributes;
 
     /**
-     * Html tag
+     * Html tag.
      *
      * @var string
      */
@@ -51,9 +52,9 @@ class NavigationHelper
     /**
      * NavigationHelper constructor.
      *
-     * @param \FrontendTemplate $template
+     * @param FrontendTemplate $template Frontend template.
      */
-    public function __construct(\FrontendTemplate $template)
+    public function __construct(FrontendTemplate $template)
     {
         $this->template   = $template;
         $this->attributes = new Attributes();
@@ -74,11 +75,11 @@ class NavigationHelper
     /**
      * Create a new instance for a template.
      *
-     * @param \FrontendTemplate $template
+     * @param FrontendTemplate $template Frontend template.
      *
      * @return static
      */
-    public static function createForTemplate(\FrontendTemplate $template)
+    public static function createForTemplate(FrontendTemplate $template)
     {
         return new static($template);
 
@@ -123,7 +124,7 @@ class NavigationHelper
     /**
      * Check the level.
      *
-     * @param int $level Navigation level
+     * @param int $level Navigation level.
      *
      * @return bool
      */
