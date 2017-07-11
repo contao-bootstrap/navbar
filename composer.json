@@ -32,7 +32,7 @@
         "contao/manager-plugin": "^2.0"
     },
     "conflict": {
-        "netzmacht/contao-bootstrap": "*",
+        "netzmacht/contao-bootstrap": "*"
     },
     "autoload": {
         "psr-4": { "ContaoBootstrap\\Navbar\\": "src/" }
