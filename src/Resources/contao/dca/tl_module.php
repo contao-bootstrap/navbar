@@ -10,7 +10,7 @@
 /**
  * palettes
  */
-$GLOBALS['TL_DCA']['tl_module']['metapalettes']['navbar'] = [
+$GLOBALS['TL_DCA']['tl_module']['metapalettes']['bootstrap_navbar'] = [
     'title'     => ['name', 'type'],
     'config'    => ['bootstrap_isResponsive', 'bootstrap_addBrand', 'bootstrap_navbarModules'],
     'protected' => [':hide', 'protected'],
@@ -81,14 +81,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarModules'] = [
                     [
                         'label'     => $GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarModules_cssClass'],
                         'inputType' => 'text',
-                        'eval'      => ['style' => 'width: 350px', 'rgxp' => 'txt'],
+                        'eval'      => ['style' => 'width: 500px', 'rgxp' => 'txt'],
                     ],
 
                 'inactive' =>
                     [
                         'label'     => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarModules_inactive'],
                         'inputType' => 'checkbox',
-                        'eval'      => ['style' => 'width: 80px'],
+                        'eval'      => ['style' => 'width: 20px'],
                     ],
             ]
     ],
