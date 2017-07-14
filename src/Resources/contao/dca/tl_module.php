@@ -108,7 +108,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarBrandTemplate'] = [
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_toggleableSize'] = [
     'label'     => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_toggleableSize'],
-    'default'   => 'mod_navbar',
+    'default'   => '',
     'exclude'   => true,
     'inputType' => 'select',
     'options'   => ['xs', 'sm', 'md', 'lg', 'xl'],
