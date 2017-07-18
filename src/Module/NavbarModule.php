@@ -24,7 +24,7 @@ class NavbarModule extends Module
      *
      * @var string
      */
-    protected $strTemplate = 'mod_navbar';
+    protected $strTemplate = 'mod_bs_navbar';
 
     /**
      * Compile the navbar.
