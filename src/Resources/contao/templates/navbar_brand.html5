@@ -1,2 +1,2 @@
 
-<a href="{{env::url}}/" class="navbar-brand"><?php echo $GLOBALS['objPage']->rootTitle; ?></a>
+<a href="{{link_url::<?php echo $GLOBALS['objPage']->rootId; ?>}}" class="navbar-brand"><?php echo $GLOBALS['objPage']->rootTitle; ?></a>
