@@ -1,10 +1,10 @@
 <!-- indexer::stop -->
 <nav class="navbar <?php echo $this->class;?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
     <?php $this->block('content'); ?>
-    <?php if($this->bootstrap_addBrand): ?>
-        <?php $this->insert($this->bootstrap_navbarBrandTemplate); ?>
+    <?php if($this->bs_addBrand): ?>
+        <?php $this->insert($this->bs_navbarBrandTemplate); ?>
     <?php endif; ?>
-    <?php if($this->bootstrap_isResponsive): ?>
+    <?php if($this->bs_isResponsive): ?>
         <button
                 class="navbar-toggler"
                 type="button"
@@ -17,7 +17,7 @@
         </button>
     <?php endif; ?>
 
-    <?php if($this->bootstrap_isResponsive): ?>
+    <?php if($this->bs_isResponsive): ?>
     <div class="collapse navbar-collapse" id="navbar-responsive-<?php echo $this->id; ?>">
         <?php endif; ?>
 
@@ -27,7 +27,7 @@
             <?php if($module['class']): ?></div><?php endif; ?>
         <?php endforeach; ?>
 
-        <?php if($this->bootstrap_isResponsive): ?></div><?php endif; ?>
+        <?php if($this->bs_isResponsive): ?></div><?php endif; ?>
     <?php $this->endblock(); ?>
 </nav>
 <!-- indexer::continue -->

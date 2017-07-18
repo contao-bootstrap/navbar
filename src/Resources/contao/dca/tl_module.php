@@ -10,9 +10,9 @@
 /**
  * palettes
  */
-$GLOBALS['TL_DCA']['tl_module']['metapalettes']['bootstrap_navbar'] = [
+$GLOBALS['TL_DCA']['tl_module']['metapalettes']['bs_navbar'] = [
     'title'     => ['name', 'type'],
-    'config'    => ['bootstrap_isResponsive', 'bootstrap_addBrand', 'bootstrap_navbarModules'],
+    'config'    => ['bs_isResponsive', 'bs_addBrand', 'bs_navbarModules'],
     'protected' => [':hide', 'protected'],
     'expert'    => [':hide', 'guests', 'cssID', 'space'],
     'template'  => [':hide', 'customTpl'],
@@ -21,19 +21,19 @@ $GLOBALS['TL_DCA']['tl_module']['metapalettes']['bootstrap_navbar'] = [
 /**
  * subpalettes
  */
-$GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bootstrap_addBrand'] = [
-    'bootstrap_navbarBrandTemplate',
+$GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bs_addBrand'] = [
+    'bs_navbarBrandTemplate',
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bootstrap_isResponsive'] = [
-    'bootstrap_toggleableSize',
+$GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bs_isResponsive'] = [
+    'bs_toggleableSize',
 ];
 
 /*
  * Fields
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navClass'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_navClass'],
+$GLOBALS['TL_DCA']['tl_module']['fields']['bs_navClass'] = [
+    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navClass'],
     'exclude'   => true,
     'inputType' => 'text',
     'eval'      => ['tl_class' => 'w50'],
@@ -41,8 +41,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navClass'] = [
 ];
 
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_isResponsive'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_isResponsive'],
+$GLOBALS['TL_DCA']['tl_module']['fields']['bs_isResponsive'] = [
+    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_isResponsive'],
     'exclude'   => true,
     'inputType' => 'checkbox',
     'default'   => true,
@@ -50,16 +50,16 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_isResponsive'] = [
     'sql'       => "char(1) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_addBrand'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_addBrand'],
+$GLOBALS['TL_DCA']['tl_module']['fields']['bs_addBrand'] = [
+    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_addBrand'],
     'exclude'   => true,
     'inputType' => 'checkbox',
     'eval'      => ['tl_class' => 'clr w50', 'submitOnChange' => true],
     'sql'       => "char(1) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarModules'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarModules'],
+$GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
+    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules'],
     'exclude'   => true,
     'inputType' => 'multiColumnWizard',
     'eval'      => [
@@ -68,7 +68,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarModules'] = [
             [
                 'module'   =>
                     [
-                        'label'            => $GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarModules_module'],
+                        'label'            => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_module'],
                         'inputType'        => 'select',
                         'options_callback' => ['ContaoBootstrap\Core\DataContainer\Module', 'getAllModules'],
                         'eval'             => [
@@ -79,14 +79,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarModules'] = [
                     ],
                 'cssClass' =>
                     [
-                        'label'     => $GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarModules_cssClass'],
+                        'label'     => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_cssClass'],
                         'inputType' => 'text',
                         'eval'      => ['style' => 'width: 500px', 'rgxp' => 'txt'],
                     ],
 
                 'inactive' =>
                     [
-                        'label'     => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarModules_inactive'],
+                        'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_inactive'],
                         'inputType' => 'checkbox',
                         'eval'      => ['style' => 'width: 20px'],
                     ],
@@ -95,8 +95,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarModules'] = [
     'sql'       => "blob NULL"
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarBrandTemplate'] = [
-    'label'            => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_navbarBrandTemplate'],
+$GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarBrandTemplate'] = [
+    'label'            => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarBrandTemplate'],
     'default'          => 'mod_navbar',
     'exclude'          => true,
     'inputType'        => 'select',
@@ -106,8 +106,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_navbarBrandTemplate'] = [
     'sql'              => "varchar(64) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['bootstrap_toggleableSize'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bootstrap_toggleableSize'],
+$GLOBALS['TL_DCA']['tl_module']['fields']['bs_toggleableSize'] = [
+    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_toggleableSize'],
     'default'   => '',
     'exclude'   => true,
     'inputType' => 'select',

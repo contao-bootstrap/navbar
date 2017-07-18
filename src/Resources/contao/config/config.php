@@ -12,4 +12,4 @@
  * Frontend modules
  */
 
-$GLOBALS['FE_MOD']['navigationMenu']['bootstrap_navbar'] = 'ContaoBootstrap\Navbar\Module\NavbarModule';
+$GLOBALS['FE_MOD']['navigationMenu']['bs_navbar'] = 'ContaoBootstrap\Navbar\Module\NavbarModule';

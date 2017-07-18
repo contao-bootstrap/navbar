@@ -12,6 +12,6 @@
  */
 
 
-$GLOBALS['TL_LANG']['FMD']['bootstrap_navbar']['0'] = 'Navigationsleiste (Bootstrap)';
-$GLOBALS['TL_LANG']['FMD']['bootstrap_navbar']['1'] = 'Bootstrap-Navigationselement';
+$GLOBALS['TL_LANG']['FMD']['bs_navbar']['0'] = 'Navigationsleiste (Bootstrap)';
+$GLOBALS['TL_LANG']['FMD']['bs_navbar']['1'] = 'Bootstrap-Navigationselement';
 

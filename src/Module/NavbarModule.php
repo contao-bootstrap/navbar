@@ -33,7 +33,7 @@ class NavbarModule extends Module
      */
     protected function compile()
     {
-        $config  = deserialize($this->bootstrap_navbarModules, true);
+        $config  = deserialize($this->bs_navbarModules, true);
         $modules = array();
         $models  = $this->prefetchModules($config);
 
@@ -51,8 +51,8 @@ class NavbarModule extends Module
             $cssID[1] = 'navbar-light bg-faded';
         }
 
-        if ($this->bootstrap_isResponsive && $this->bootstrap_toggleableSize) {
-            $cssID[1] = trim($cssID[1]  . ' navbar-toggleable-' . $this->bootstrap_toggleableSize);
+        if ($this->bs_isResponsive && $this->bs_toggleableSize) {
+            $cssID[1] = trim($cssID[1]  . ' navbar-toggleable-' . $this->bs_toggleableSize);
         }
 
         $this->cssID             = $cssID;
@@ -128,7 +128,7 @@ class NavbarModule extends Module
             if ($collection) {
                 while ($collection->next()) {
                     $model                     = $collection->current();
-                    $model->bootstrap_inNavbar = true;
+                    $model->bs_inNavbar = true;
                     $models[$model->id]        = $model;
                 }
             }
