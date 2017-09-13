@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Navbar\Helper;
 
 use Netzmacht\Html\Attributes;
@@ -73,7 +75,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
     /**
      * {@inheritdoc}
      */
-    public function getItemClass($asArray = false)
+    public function getItemClass(bool $asArray = false)
     {
         if ($asArray) {
             return $this->itemClass;
@@ -85,7 +87,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
     /**
      * {@inheritdoc}
      */
-    public function getTag()
+    public function getTag(): string
     {
         return $this->item['isActive'] ? 'strong' : 'a';
     }
@@ -95,7 +97,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      *
      * @return void
      */
-    private function initializeItemClasses()
+    private function initializeItemClasses(): void
     {
         if ($this->item['class']) {
             $classes = trimsplit(' ', $this->item['class']);

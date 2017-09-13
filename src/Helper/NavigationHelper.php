@@ -10,6 +10,7 @@
  * @filesource
  */
 
+declare(strict_types=1);
 
 namespace ContaoBootstrap\Navbar\Helper;
 
@@ -81,7 +82,7 @@ class NavigationHelper
      *
      * @return static
      */
-    public static function createForTemplate(FrontendTemplate $template)
+    public static function createForTemplate(FrontendTemplate $template): self
     {
         return new static($template);
     }
@@ -91,7 +92,7 @@ class NavigationHelper
      *
      * @return Attributes
      */
-    public function getAttributes()
+    public function getAttributes(): Attributes
     {
         return $this->attributes;
     }
@@ -103,7 +104,7 @@ class NavigationHelper
      *
      * @return ItemHelper
      */
-    public function getItemHelper(array $item)
+    public function getItemHelper(array $item): ItemHelper
     {
         if ($this->level === 1) {
             return new NavItemHelper($item);
@@ -117,7 +118,7 @@ class NavigationHelper
      *
      * @return string
      */
-    public function getTag()
+    public function getTag(): string
     {
         return $this->tag;
     }
@@ -129,7 +130,7 @@ class NavigationHelper
      *
      * @return bool
      */
-    public function isLevel($level)
+    public function isLevel(int $level): bool
     {
         return $this->level === $level;
     }

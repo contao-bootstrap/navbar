@@ -10,6 +10,7 @@
  * @filesource
  */
 
+declare(strict_types=1);
 
 namespace ContaoBootstrap\Navbar\Helper;
 
@@ -27,7 +28,7 @@ interface ItemHelper
      *
      * @return mixed
      */
-    public function getItemClass($asArray = false);
+    public function getItemClass(bool $asArray = false);
 
 
     /**
@@ -35,12 +36,12 @@ interface ItemHelper
      *
      * @return string
      */
-    public function getTag();
+    public function getTag(): string;
 
     /**
      * Generates the item attributes.
      *
      * @return string
      */
-    public function __toString();
+    public function __toString(): string;
 }

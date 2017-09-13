@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Navbar\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
