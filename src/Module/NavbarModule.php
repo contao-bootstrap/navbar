@@ -1,11 +1,13 @@
 <?php
 
 /**
+ * Contao Bootstrap Navbar.
+ *
  * @package    contao-bootstrap
  * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2016 netzmacht David Molineus. All rights reserved.
+ * @copyright  2017 netzmacht David Molineus. All rights reserved.
+ * @license    LGPL 3.0
  * @filesource
- *
  */
 
 namespace ContaoBootstrap\Navbar\Module;
@@ -34,7 +36,7 @@ class NavbarModule extends Module
     protected function compile()
     {
         $config  = deserialize($this->bs_navbarModules, true);
-        $modules = array();
+        $modules = [];
         $models  = $this->prefetchModules($config);
 
         foreach ($config as $module) {
@@ -52,7 +54,7 @@ class NavbarModule extends Module
         }
 
         if ($this->bs_isResponsive && $this->bs_toggleableSize) {
-            $cssID[1] = trim($cssID[1]  . ' navbar-toggleable-' . $this->bs_toggleableSize);
+            $cssID[1] = trim($cssID[1] . ' navbar-toggleable-' . $this->bs_toggleableSize);
         }
 
         $this->cssID             = $cssID;
@@ -79,12 +81,12 @@ class NavbarModule extends Module
             $class .= 'navbar-' . $module['floating'];
         }
 
-        return array(
+        return [
             'type'   => 'module',
             'module' => $this->getFrontendModule($model),
             'id'     => $module['module'],
             'class'  => $class,
-        );
+        ];
     }
 
     /**
@@ -96,7 +98,7 @@ class NavbarModule extends Module
      */
     protected function extractModuleIds($config)
     {
-        $ids = array();
+        $ids = [];
 
         foreach ($config as $index => $module) {
             if ($module['inactive']) {
@@ -118,18 +120,18 @@ class NavbarModule extends Module
     protected function prefetchModules($config)
     {
         $ids    = $this->extractModuleIds($config);
-        $models = array();
+        $models = [];
 
         if ($ids) {
             // prefetch modules, so only 1 query is required
             $ids        = implode(',', $ids);
-            $collection = \ModuleModel::findBy(array('tl_module.id IN(' . $ids . ')'), array());
+            $collection = \ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
 
             if ($collection) {
                 while ($collection->next()) {
-                    $model                     = $collection->current();
+                    $model              = $collection->current();
                     $model->bs_inNavbar = true;
-                    $models[$model->id]        = $model;
+                    $models[$model->id] = $model;
                 }
             }
         }

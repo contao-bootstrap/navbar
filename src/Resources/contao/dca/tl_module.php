@@ -1,15 +1,19 @@
 <?php
 
 /**
- * @package   contao-bootstrap
- * @author    David Molineus <david.molineus@netzmacht.de>
- * @license   LGPL 3+
- * @copyright 2013-2015 netzmacht creative David Molineus
+ * Contao Bootstrap Navbar.
+ *
+ * @package    contao-bootstrap
+ * @author     David Molineus <david.molineus@netzmacht.de>
+ * @copyright  2017 netzmacht David Molineus. All rights reserved.
+ * @license    LGPL 3.0
+ * @filesource
  */
 
-/**
- * palettes
+/*
+ * Palettes
  */
+
 $GLOBALS['TL_DCA']['tl_module']['metapalettes']['bs_navbar'] = [
     'title'     => ['name', 'type'],
     'config'    => ['bs_isResponsive', 'bs_addBrand', 'bs_navbarModules'],
@@ -18,9 +22,10 @@ $GLOBALS['TL_DCA']['tl_module']['metapalettes']['bs_navbar'] = [
     'template'  => [':hide', 'customTpl'],
 ];
 
-/**
- * subpalettes
+/*
+ * Subpalettes
  */
+
 $GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bs_addBrand'] = [
     'bs_navbarBrandTemplate',
 ];
@@ -32,6 +37,7 @@ $GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bs_isResponsive'] = [
 /*
  * Fields
  */
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navClass'] = [
     'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navClass'],
     'exclude'   => true,
@@ -66,33 +72,30 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
         'tl_class'     => 'clr',
         'columnFields' =>
             [
-                'module'   =>
-                    [
-                        'label'            => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_module'],
-                        'inputType'        => 'select',
-                        'options_callback' => ['ContaoBootstrap\Core\DataContainer\Module', 'getAllModules'],
-                        'eval'             => [
-                            'style'              => 'width: 250px',
-                            'includeBlankOption' => true,
-                            'chosen'             => true
-                        ],
+                'module'   => [
+                    'label'            => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_module'],
+                    'inputType'        => 'select',
+                    'options_callback' => ['ContaoBootstrap\Core\DataContainer\Module', 'getAllModules'],
+                    'eval'             => [
+                        'style'              => 'width: 250px',
+                        'includeBlankOption' => true,
+                        'chosen'             => true,
                     ],
-                'cssClass' =>
-                    [
-                        'label'     => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_cssClass'],
-                        'inputType' => 'text',
-                        'eval'      => ['style' => 'width: 500px', 'rgxp' => 'txt'],
-                    ],
+                ],
+                'cssClass' => [
+                    'label'     => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_cssClass'],
+                    'inputType' => 'text',
+                    'eval'      => ['style' => 'width: 500px', 'rgxp' => 'txt'],
+                ],
 
-                'inactive' =>
-                    [
-                        'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_inactive'],
-                        'inputType' => 'checkbox',
-                        'eval'      => ['style' => 'width: 20px'],
-                    ],
-            ]
+                'inactive' => [
+                    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_inactive'],
+                    'inputType' => 'checkbox',
+                    'eval'      => ['style' => 'width: 20px'],
+                ],
+            ],
     ],
-    'sql'       => "blob NULL"
+    'sql'       => 'blob NULL',
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarBrandTemplate'] = [
@@ -116,7 +119,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_toggleableSize'] = [
         'templatePrefix'     => 'navbar_brand',
         'chosen'             => true,
         'tl_class'           => 'w50',
-        'includeBlankOption' => true
+        'includeBlankOption' => true,
     ],
     'sql'       => "char(2) NOT NULL default ''",
 ];
