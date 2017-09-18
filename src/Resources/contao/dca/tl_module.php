@@ -75,7 +75,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
                 'module'   => [
                     'label'            => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_module'],
                     'inputType'        => 'select',
-                    'options_callback' => ['ContaoBootstrap\Core\DataContainer\Module', 'getAllModules'],
+                    'options_callback' => ['contao_bootstrap.core.listener.module_dca', 'getAllModules'],
                     'eval'             => [
                         'style'              => 'width: 250px',
                         'includeBlankOption' => true,
@@ -104,7 +104,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarBrandTemplate'] = [
     'exclude'          => true,
     'inputType'        => 'select',
     'reference'        => &$GLOBALS['TL_LANG']['tl_module'],
-    'options_callback' => ['ContaoBootstrap\Core\DataContainer\Module', 'getTemplates'],
+    'options_callback' => ['contao_bootstrap.core.listener.module_dca', 'getTemplates'],
     'eval'             => ['templatePrefix' => 'navbar_brand', 'chosen' => true, 'tl_class' => 'clr'],
     'sql'              => "varchar(64) NOT NULL default ''",
 ];
