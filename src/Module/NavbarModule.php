@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Navbar\Module;
 
 use Contao\Module;
+use Contao\ModuleModel;
 
 /**
  * Class NavbarModule.
@@ -66,12 +67,12 @@ class NavbarModule extends Module
     /**
      * Generate a frontend module.
      *
-     * @param array        $module Module configuration.
-     * @param \ModuleModel $model  Module model.
+     * @param array       $module Module configuration.
+     * @param ModuleModel $model  Module model.
      *
      * @return array
      */
-    protected function generateModule($module, \ModuleModel $model)
+    protected function generateModule($module, ModuleModel $model)
     {
         $class = $module['cssClass'];
 
@@ -119,7 +120,7 @@ class NavbarModule extends Module
         if ($ids) {
             // prefetch modules, so only 1 query is required
             $ids        = implode(',', $ids);
-            $collection = \ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
+            $collection = ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
 
             if ($collection) {
                 while ($collection->next()) {
