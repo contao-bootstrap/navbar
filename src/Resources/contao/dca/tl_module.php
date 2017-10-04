@@ -116,7 +116,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_toggleableSize'] = [
     'inputType' => 'select',
     'options'   => ['xs', 'sm', 'md', 'lg', 'xl'],
     'eval'      => [
-        'templatePrefix'     => 'navbar_brand',
         'chosen'             => true,
         'tl_class'           => 'w50',
         'includeBlankOption' => true,
