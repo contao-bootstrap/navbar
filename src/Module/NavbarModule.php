@@ -52,11 +52,11 @@ class NavbarModule extends Module
         $cssID = $this->cssID;
 
         if ($this->cssID[1] == '') {
-            $cssID[1] = 'navbar-light bg-faded';
+            $cssID[1] = 'navbar-light bg-light';
         }
 
         if ($this->bs_isResponsive && $this->bs_toggleableSize) {
-            $cssID[1] = trim($cssID[1] . ' navbar-toggleable-' . $this->bs_toggleableSize);
+            $cssID[1] = trim($cssID[1] . ' navbar-expand-' . $this->bs_toggleableSize);
         }
 
         $this->cssID             = $cssID;
