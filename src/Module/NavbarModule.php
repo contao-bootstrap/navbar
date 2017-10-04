@@ -75,14 +75,6 @@ class NavbarModule extends Module
     {
         $class = $module['cssClass'];
 
-        if ($module['floating']) {
-            if ($class != '') {
-                $class .= ' ';
-            }
-
-            $class .= 'navbar-' . $module['floating'];
-        }
-
         return [
             'type'   => 'module',
             'module' => $this->getFrontendModule($model),
