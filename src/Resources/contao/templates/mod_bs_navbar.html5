@@ -1,5 +1,6 @@
 <!-- indexer::stop -->
-<nav class="navbar <?php echo $this->class;?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
+<nav class="navbar <?php echo $this->class;?><?php if($this->bs_toggleableSize): ?> navbar-toggleable-<?php echo $this->bs_toggleableSize; ?><?php endif; ?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
+
     <?php $this->block('content'); ?>
     <?php if($this->bs_addBrand): ?>
         <?php $this->insert($this->bs_navbarBrandTemplate); ?>
