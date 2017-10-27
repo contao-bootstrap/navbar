@@ -69,7 +69,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
     'exclude'   => true,
     'inputType' => 'multiColumnWizard',
     'eval'      => [
-        'tl_class'     => 'clr',
+        'tl_class'     => 'clr ctb-mcw ctb-navbar-mcw',
         'columnFields' =>
             [
                 'module'   => [
@@ -85,13 +85,13 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
                 'cssClass' => [
                     'label'     => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_cssClass'],
                     'inputType' => 'text',
-                    'eval'      => ['style' => 'width: 500px', 'rgxp' => 'txt'],
+                    'eval'      => ['rgxp' => 'txt'],
                 ],
 
                 'inactive' => [
                     'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_inactive'],
                     'inputType' => 'checkbox',
-                    'eval'      => ['style' => 'width: 20px'],
+                    'eval'      => [],
                 ],
             ],
     ],
