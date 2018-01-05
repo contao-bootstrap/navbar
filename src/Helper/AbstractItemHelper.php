@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Navbar\Helper;
 
 use Netzmacht\Html\Attributes;
+use Netzmacht\Html\Exception\InvalidArgumentException;
 
 /**
  * Base helper for an navigation item.
@@ -41,6 +42,8 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      * AbstractItemHelper constructor.
      *
      * @param array $item Navigation item.
+     *
+     * @throws InvalidArgumentException If a broken html attribute is created.
      */
     public function __construct(array $item)
     {
