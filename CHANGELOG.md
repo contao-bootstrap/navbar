@@ -2,6 +2,13 @@
 Changelog
 =========
 
+2.0.0 (2018-01-05)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.0.0-beta...2.0.0)
+
+ - Support Metapalettes v2.0
+
 2.0.0-beta1 (2017-10-04)
 ------------------------
 
