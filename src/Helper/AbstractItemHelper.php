@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Navbar\Helper;
 
+use Contao\StringUtil;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
 
@@ -103,7 +104,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
     private function initializeItemClasses(): void
     {
         if ($this->item['class']) {
-            $classes = trimsplit(' ', $this->item['class']);
+            $classes = StringUtil::trimsplit(' ', $this->item['class']);
             foreach ($classes as $class) {
                 $this->itemClass[] = $class;
             }

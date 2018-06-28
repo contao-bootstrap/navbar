@@ -16,6 +16,7 @@ namespace ContaoBootstrap\Navbar\Module;
 
 use Contao\Module;
 use Contao\ModuleModel;
+use Contao\StringUtil;
 
 /**
  * Class NavbarModule.
@@ -38,7 +39,7 @@ class NavbarModule extends Module
      */
     protected function compile()
     {
-        $config  = deserialize($this->bs_navbarModules, true);
+        $config  = StringUtil::deserialize($this->bs_navbarModules, true);
         $modules = [];
         $models  = $this->prefetchModules($config);
 
