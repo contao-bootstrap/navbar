@@ -8,10 +8,9 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2015-10-17T20:06:34+02:00
+ * last-updated: 2017-07-18T07:56:48+00:00
  */
 
-
 $GLOBALS['TL_LANG']['FMD']['bs_navbar']['0'] = 'Navigationsleiste (Bootstrap)';
-$GLOBALS['TL_LANG']['FMD']['bs_navbar']['1'] = 'Bootstrap-Navigationselement';
+$GLOBALS['TL_LANG']['FMD']['bs_navbar']['1'] = 'Bootstrap-Element Navigationsleiste mit erweiterten Optionen.';
 
