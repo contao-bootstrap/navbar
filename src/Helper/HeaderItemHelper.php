@@ -5,12 +5,10 @@
  *
  * @package    contao-bootstrap
  * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2017 netzmacht David Molineus. All rights reserved.
- * @license    LGPL 3.0
+ * @copyright  2017-2018 netzmacht David Molineus. All rights reserved.
+ * @license    LGPL 3.0-or-later
  * @filesource
  */
-
-declare(strict_types=1);
 
 namespace ContaoBootstrap\Navbar\Helper;
 
@@ -19,11 +17,9 @@ use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
 
 /**
- * Base helper for an navigation item.
- *
- * @package ContaoBootstrap\Navbar\Helper
+ * Class HeaderItemHelper creates the header navigation item.
  */
-abstract class AbstractItemHelper extends Attributes implements ItemHelper
+final class HeaderItemHelper extends Attributes implements ItemHelper
 {
     /**
      * Current item.
@@ -44,34 +40,14 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      *
      * @param array $item Navigation item.
      *
-     * @throws InvalidArgumentException If a broken html attribute is created.
+     * @throws InvalidArgumentException When invalid attributes are given.
      */
     public function __construct(array $item)
     {
         parent::__construct();
 
         $this->item = $item;
-
-        if ($this->getTag() === 'a') {
-            $this->setAttribute('href', $item['href']);
-            $this->setAttribute('itemprop', 'url');
-
-            if ($this->item['nofollow']) {
-                $this->setAttribute('rel', 'nofollow');
-            }
-        } else {
-            $this->setAttribute('itemprop', 'name');
-        }
-
-        $attributes = array('accesskey', 'tabindex', 'target');
-        foreach ($attributes as $attribute) {
-            if ($item[$attribute]) {
-                $this->setAttribute($attribute, $item[$attribute]);
-            }
-        }
-
-        $title = $this->item['pageTitle'] ?: $this->item['title'];
-        $this->setAttribute('title', $title);
+        $this->addClass('dropdown-header');
 
         $this->initializeItemClasses();
     }
@@ -93,7 +69,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      */
     public function getTag(): string
     {
-        return $this->item['isActive'] ? 'strong' : 'a';
+        return 'div';
     }
 
     /**
