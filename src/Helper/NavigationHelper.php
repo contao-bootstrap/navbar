@@ -15,7 +15,9 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Navbar\Helper;
 
 use Contao\FrontendTemplate;
+use Contao\PageModel;
 use Netzmacht\Html\Attributes;
+use Netzmacht\Html\Exception\InvalidArgumentException;
 
 /**
  * Class NavigationHelper provides an navigation template helper for the navbar navigation.
@@ -69,8 +71,12 @@ class NavigationHelper
         if ($this->level === 1) {
             $attributes->addClass('navbar-nav');
             $this->tag = 'ul';
-        } elseif ($this->level === 2) {
+        }
+
+        if ($this->level === 2) {
             $attributes->addClass('dropdown-menu');
+            $this->tag = 'div';
+        } else {
             $this->tag = 'div';
         }
     }
@@ -103,13 +109,17 @@ class NavigationHelper
      * @param array $item Item data.
      *
      * @return ItemHelper
+     *
+     * @throws InvalidArgumentException If invalid data is given.
      */
     public function getItemHelper(array $item): ItemHelper
     {
-        if ($this->level === 1) {
-            return new NavItemHelper($item);
-        } else {
+        if ($this->level !== 1 && $item['type'] === 'folder') {
+            return new HeaderItemHelper($item);
+        } elseif ($this->level === 2 || ($this->level > 1 && $this->getPageType() === 'folder')) {
             return new DropdownItemHelper($item);
+        } else {
+            return new NavItemHelper($item);
         }
     }
 
@@ -133,5 +143,15 @@ class NavigationHelper
     public function isLevel(int $level): bool
     {
         return $this->level === $level;
+    }
+
+    /**
+     * Get the page type of the current navigation page.
+     *
+     * @return string
+     */
+    private function getPageType(): string
+    {
+        return (string) PageModel::findByPk($this->template->pid)->type;
     }
 }
