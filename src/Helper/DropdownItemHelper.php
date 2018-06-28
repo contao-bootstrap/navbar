@@ -29,5 +29,6 @@ class DropdownItemHelper extends AbstractItemHelper
         parent::__construct($item);
 
         $this->addClass('dropdown-item');
+        $this->addClasses($this->itemClass);
     }
 }
