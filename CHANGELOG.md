@@ -2,10 +2,18 @@
 Changelog
 =========
 
-2.1.1 (xxxx-xx-xx)
+2.1.1 (2018-07-30)
 ------------------
 
-[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.0...hotfix/2.1.1)
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.1...hotfix/2.1.2)
+
+ - Fix tag of first list.
+ 
+
+2.1.1 (2018-06-28)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.0...2.1.1)
 
  - Fix missing active class for dropdown items
 
