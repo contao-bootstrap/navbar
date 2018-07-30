@@ -71,13 +71,12 @@ class NavigationHelper
         if ($this->level === 1) {
             $attributes->addClass('navbar-nav');
             $this->tag = 'ul';
+        } else {
+            $this->tag = 'div';
         }
 
         if ($this->level === 2) {
             $attributes->addClass('dropdown-menu');
-            $this->tag = 'div';
-        } else {
-            $this->tag = 'div';
         }
     }
 
