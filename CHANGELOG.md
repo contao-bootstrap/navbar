@@ -2,10 +2,18 @@
 Changelog
 =========
 
-2.1.1 (2018-07-30)
+hotfix/2.1.3 (xxxx-xx-xx)
+-------------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.2...hotfix/2.1.3)
+
+ - Fix broken target attribute which is already prerendered in the template.
+
+
+2.1.2 (2018-07-30)
 ------------------
 
-[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.1...hotfix/2.1.2)
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.1...2.1.2)
 
  - Fix tag of first list.
  
