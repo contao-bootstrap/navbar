@@ -1,11 +1,11 @@
 Contao-Bootstrap Navigation
 ===========================
 
-[![Build Status](http://img.shields.io/travis/contao-bootstrap/navbar/master.svg?style=flat-square)](https://travis-ci.org/contao-bootstrap/navbar)
-[![Version](http://img.shields.io/packagist/v/contao-bootstrap/navbar.svg?style=flat-square)](http://packagist.org/packages/contao-bootstrap/navbar)
-[![License](http://img.shields.io/packagist/l/contao-bootstrap/navbar.svg?style=flat-square)](http://packagist.org/packages/contao-bootstrap/navbar)
-[![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/navbar.svg?style=flat-square)](http://packagist.org/packages/contao-bootstrap/navbar)
-[![Contao Community Alliance coding standard](http://img.shields.io/badge/cca-coding_standard-red.svg?style=flat-square)](https://github.com/contao-community-alliance/coding-standard)
+[![Version](http://img.shields.io/packagist/v/contao-bootstrap/navbar.svg?style=for-the-badge&label=Latest)](http://packagist.org/packages/contao-bootstrap/navbar)
+[![GitHub issues](https://img.shields.io/github/issues/contao-bootstrap/navbar.svg?style=for-the-badge&logo=github)](https://github.com/contao-bootstrap/navbar/issues)
+[![License](http://img.shields.io/packagist/l/contao-bootstrap/navbar.svg?style=for-the-badge&label=License)](http://packagist.org/packages/contao-bootstrap/navbar)
+[![Build Status](http://img.shields.io/travis/contao-bootstrap/navbar/master.svg?style=for-the-badge&logo=travis)](https://travis-ci.org/contao-bootstrap/navbar)
+[![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/navbar.svg?style=for-the-badge&label=Downloads)](http://packagist.org/packages/contao-bootstrap/navbar)
 
 This extension provides Bootstrap integration into Contao. 
 
@@ -48,9 +48,10 @@ $ php contao-manager.phar.php composer require contao-bootstrap/grid~2.0@beta
 $ php composer.phar require contao-bootstrap/grid~2.0@beta
 ```
 
-### Standard edition
+### Symfony application
 
-Without the contao manager you also have to register the bundle
+If you use Contao in a symfony application without contao/manager-bundle, you have to register following bundles 
+manually:
 
 ```php
 

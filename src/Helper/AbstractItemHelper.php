@@ -66,7 +66,13 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         $attributes = array('accesskey', 'tabindex', 'target');
         foreach ($attributes as $attribute) {
             if ($item[$attribute]) {
-                $this->setAttribute($attribute, $item[$attribute]);
+                // Detect if attribute is prerendered, for example target is as ' target="..."'
+                $key = sprintf(' %s="', $attribute);
+                if (strpos($item[$attribute], $key) === 0) {
+                    $this->setAttribute($attribute, substr($item[$attribute], strlen($key), -1));
+                } else {
+                    $this->setAttribute($attribute, $item[$attribute]);
+                }
             }
         }
 
