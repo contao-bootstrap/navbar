@@ -6,7 +6,7 @@
     <?php endif; ?>
     <?php if($this->bs_isResponsive): ?>
         <button
-                class="navbar-toggler"
+                class="navbar-toggler collapsed"
                 type="button"
                 data-toggle="collapse"
                 data-target="#navbar-responsive-<?= $this->id ?>"
