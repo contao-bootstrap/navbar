@@ -24,7 +24,8 @@
         "contao-bootstrap/core": "^2.0",
         "menatwork/contao-multicolumnwizard":"^3.3.4",
         "contao-community-alliance/meta-palettes":"^2.0 || ^1.11",
-        "netzmacht/html": "~2.0"
+        "netzmacht/html": "~2.0",
+        "symfony/http-kernel": "^3.3 || ^4.0"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0",
