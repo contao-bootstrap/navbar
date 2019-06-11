@@ -70,6 +70,11 @@ class NavigationHelper
 
         if ($this->level === 1) {
             $attributes->addClass('navbar-nav');
+
+            if ($template->navClass)  {
+                $attributes->addClass($this->template->navClass);
+            }
+
             $this->tag = 'ul';
         } else {
             $this->tag = 'div';
