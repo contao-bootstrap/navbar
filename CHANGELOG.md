@@ -2,10 +2,25 @@
 Changelog
 =========
 
-hotfix/2.1.3 (xxxx-xx-xx)
--------------------------
+2.1.4 (2019-06-11)
+------------------
 
-[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.2...hotfix/2.1.3)
+### Enhanced
+
+ - Add navClass if it's defined in the template (Feature of contao-bootstrap/templates) [#13](https://github.com/contao-bootstrap/navbar/issues/12)
+
+### Fixed
+
+ - Fix readme example [#13](https://github.com/contao-bootstrap/navbar/issues/13)
+
+### Changed
+
+ - Update travis configuration
+
+2.1.3 (2018-08-27)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.2...2.1.3)
 
  - Fix broken target attribute which is already prerendered in the template.
 
