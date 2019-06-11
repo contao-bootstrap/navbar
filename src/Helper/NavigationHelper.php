@@ -71,7 +71,7 @@ class NavigationHelper
         if ($this->level === 1) {
             $attributes->addClass('navbar-nav');
 
-            if ($template->navClass)  {
+            if ($template->navClass) {
                 $attributes->addClass($this->template->navClass);
             }
 
