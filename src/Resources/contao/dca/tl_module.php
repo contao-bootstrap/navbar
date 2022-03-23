@@ -100,7 +100,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarBrandTemplate'] = [
     'label'            => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarBrandTemplate'],
-    'default'          => 'mod_navbar',
+    'default'          => 'navbar_brand',
     'exclude'          => true,
     'inputType'        => 'select',
     'reference'        => &$GLOBALS['TL_LANG']['tl_module'],
