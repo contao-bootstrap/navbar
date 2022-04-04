@@ -73,7 +73,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
         'columnFields' =>
             [
                 'module'   => [
-                    'label'            => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_module'],
+                    'label'            => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_module'],
                     'inputType'        => 'select',
                     'options_callback' => ['contao_bootstrap.core.listener.module_dca', 'getAllModules'],
                     'eval'             => [
@@ -83,7 +83,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
                     ],
                 ],
                 'cssClass' => [
-                    'label'     => $GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_cssClass'],
+                    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_cssClass'],
                     'inputType' => 'text',
                     'eval'      => ['rgxp' => 'txt'],
                 ],
