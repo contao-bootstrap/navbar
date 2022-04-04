@@ -1,14 +1,6 @@
 <?php
 
-/**
- * Contao Bootstrap Navbar.
- *
- * @package    contao-bootstrap
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2017 netzmacht David Molineus. All rights reserved.
- * @license    LGPL 3.0
- * @filesource
- */
+declare(strict_types=1);
 
 /*
  * Palettes
@@ -26,20 +18,15 @@ $GLOBALS['TL_DCA']['tl_module']['metapalettes']['bs_navbar'] = [
  * Subpalettes
  */
 
-$GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bs_addBrand'] = [
-    'bs_navbarBrandTemplate',
-];
+$GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bs_addBrand'] = ['bs_navbarBrandTemplate'];
 
-$GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bs_isResponsive'] = [
-    'bs_toggleableSize',
-];
+$GLOBALS['TL_DCA']['tl_module']['metasubpalettes']['bs_isResponsive'] = ['bs_toggleableSize'];
 
 /*
  * Fields
  */
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navClass'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navClass'],
     'exclude'   => true,
     'inputType' => 'text',
     'eval'      => ['tl_class' => 'w50'],
@@ -48,7 +35,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navClass'] = [
 
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_isResponsive'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_isResponsive'],
     'exclude'   => true,
     'inputType' => 'checkbox',
     'default'   => true,
@@ -57,7 +43,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_isResponsive'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_addBrand'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_addBrand'],
     'exclude'   => true,
     'inputType' => 'checkbox',
     'eval'      => ['tl_class' => 'clr w50', 'submitOnChange' => true],
@@ -65,7 +50,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_addBrand'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules'],
     'exclude'   => true,
     'inputType' => 'multiColumnWizard',
     'eval'      => [
@@ -99,7 +83,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarBrandTemplate'] = [
-    'label'            => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarBrandTemplate'],
     'default'          => 'navbar_brand',
     'exclude'          => true,
     'inputType'        => 'select',
@@ -110,7 +93,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarBrandTemplate'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_toggleableSize'] = [
-    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_toggleableSize'],
     'default'   => '',
     'exclude'   => true,
     'inputType' => 'select',

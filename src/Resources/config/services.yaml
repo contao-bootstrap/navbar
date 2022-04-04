@@ -1,0 +1,9 @@
+services:
+  ContaoBootstrap\Navbar\Module\NavbarFrontendModuleController:
+    arguments:
+      - '@netzmacht.contao_toolkit.template_renderer'
+      - '@netzmacht.contao_toolkit.routing.scope_matcher'
+      - '@netzmacht.contao_toolkit.response_tagger'
+      - '@router'
+      - '@translator'
+      - '@netzmacht.contao_toolkit.contao.controller_adapter'
