@@ -96,7 +96,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_toggleableSize'] = [
     'default'   => '',
     'exclude'   => true,
     'inputType' => 'select',
-    'options'   => ['xs', 'sm', 'md', 'lg', 'xl'],
     'eval'      => [
         'chosen'             => true,
         'tl_class'           => 'w50',

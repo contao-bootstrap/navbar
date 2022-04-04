@@ -7,3 +7,7 @@ services:
       - '@router'
       - '@translator'
       - '@netzmacht.contao_toolkit.contao.controller_adapter'
+
+  ContaoBootstrap\Navbar\EventListener\Dca\ModuleDcaListener:
+    arguments:
+      - '@contao_bootstrap.environment'
