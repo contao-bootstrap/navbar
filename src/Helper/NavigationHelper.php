@@ -1,15 +1,5 @@
 <?php
 
-/**
- * Contao Bootstrap Navbar.
- *
- * @package    contao-bootstrap
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2017 netzmacht David Molineus. All rights reserved.
- * @license    LGPL 3.0
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Navbar\Helper;
@@ -19,44 +9,34 @@ use Contao\PageModel;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
 
+use function substr;
+
 /**
  * Class NavigationHelper provides an navigation template helper for the navbar navigation.
- *
- * @package ContaoBootstrap\Navbar\Helper
  */
 class NavigationHelper
 {
     /**
      * Navigation item template.
-     *
-     * @var FrontendTemplate
      */
-    private $template;
+    private FrontendTemplate $template;
 
     /**
      * List attributes.
-     *
-     * @var Attributes
      */
-    private $attributes;
+    private Attributes $attributes;
 
     /**
      * Html tag.
-     *
-     * @var string
      */
-    private $tag;
+    private string $tag;
 
     /**
      * Navigation level.
-     *
-     * @var int
      */
-    private $level;
+    private int $level;
 
     /**
-     * NavigationHelper constructor.
-     *
      * @param FrontendTemplate $template Frontend template.
      */
     public function __construct(FrontendTemplate $template)
@@ -71,7 +51,7 @@ class NavigationHelper
         if ($this->level === 1) {
             $attributes->addClass('navbar-nav');
 
-            if ($template->navClass)  {
+            if ($template->navClass) {
                 $attributes->addClass($this->template->navClass);
             }
 
@@ -80,27 +60,25 @@ class NavigationHelper
             $this->tag = 'div';
         }
 
-        if ($this->level === 2) {
-            $attributes->addClass('dropdown-menu');
+        if ($this->level !== 2) {
+            return;
         }
+
+        $attributes->addClass('dropdown-menu');
     }
 
     /**
      * Create a new instance for a template.
      *
      * @param FrontendTemplate $template Frontend template.
-     *
-     * @return static
      */
     public static function createForTemplate(FrontendTemplate $template): self
     {
-        return new static($template);
+        return new self($template);
     }
 
     /**
      * Get all attributes.
-     *
-     * @return Attributes
      */
     public function getAttributes(): Attributes
     {
@@ -110,9 +88,7 @@ class NavigationHelper
     /**
      * Get an item helper for an item.
      *
-     * @param array $item Item data.
-     *
-     * @return ItemHelper
+     * @param array<string,mixed> $item Item data.
      *
      * @throws InvalidArgumentException If invalid data is given.
      */
@@ -120,17 +96,17 @@ class NavigationHelper
     {
         if ($this->level !== 1 && $item['type'] === 'folder') {
             return new HeaderItemHelper($item);
-        } elseif ($this->level === 2 || ($this->level > 1 && $this->getPageType() === 'folder')) {
-            return new DropdownItemHelper($item);
-        } else {
-            return new NavItemHelper($item);
         }
+
+        if ($this->level === 2 || ($this->level > 1 && $this->getPageType() === 'folder')) {
+            return new DropdownItemHelper($item);
+        }
+
+        return new NavItemHelper($item);
     }
 
     /**
      * Get the html tag.
-     *
-     * @return string
      */
     public function getTag(): string
     {
@@ -141,8 +117,6 @@ class NavigationHelper
      * Check the level.
      *
      * @param int $level Navigation level.
-     *
-     * @return bool
      */
     public function isLevel(int $level): bool
     {
@@ -151,11 +125,14 @@ class NavigationHelper
 
     /**
      * Get the page type of the current navigation page.
-     *
-     * @return string
      */
-    private function getPageType(): string
+    private function getPageType(): ?string
     {
-        return (string) PageModel::findByPk($this->template->pid)->type;
+        $page = PageModel::findByPk($this->template->pid);
+        if ($page instanceof PageModel) {
+            return $page->type;
+        }
+
+        return null;
     }
 }

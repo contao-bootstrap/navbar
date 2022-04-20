@@ -1,15 +1,5 @@
 <?php
 
-/**
- * Contao Bootstrap Navbar.
- *
- * @package    contao-bootstrap
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2017 netzmacht David Molineus. All rights reserved.
- * @license    LGPL 3.0
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Navbar\Helper;
@@ -18,31 +8,31 @@ use Contao\StringUtil;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
 
-/**
- * Base helper for an navigation item.
- *
- * @package ContaoBootstrap\Navbar\Helper
- */
+use function implode;
+use function in_array;
+use function sprintf;
+use function strlen;
+use function strpos;
+use function substr;
+
 abstract class AbstractItemHelper extends Attributes implements ItemHelper
 {
     /**
      * Current item.
      *
-     * @var array
+     * @var array<string,mixed>
      */
-    protected $item;
+    protected array $item;
 
     /**
      * Item classes.
      *
-     * @var array
+     * @var list<string>
      */
-    protected $itemClass = array();
+    protected array $itemClass = [];
 
     /**
-     * AbstractItemHelper constructor.
-     *
-     * @param array $item Navigation item.
+     * @param array<string,mixed> $item Navigation item.
      *
      * @throws InvalidArgumentException If a broken html attribute is created.
      */
@@ -63,16 +53,18 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
             $this->setAttribute('itemprop', 'name');
         }
 
-        $attributes = array('accesskey', 'tabindex', 'target');
+        $attributes = ['accesskey', 'tabindex', 'target'];
         foreach ($attributes as $attribute) {
-            if ($item[$attribute]) {
-                // Detect if attribute is prerendered, for example target is as ' target="..."'
-                $key = sprintf(' %s="', $attribute);
-                if (strpos($item[$attribute], $key) === 0) {
-                    $this->setAttribute($attribute, substr($item[$attribute], strlen($key), -1));
-                } else {
-                    $this->setAttribute($attribute, $item[$attribute]);
-                }
+            if (! $item[$attribute]) {
+                continue;
+            }
+
+            // Detect if attribute is prerendered, for example target is as ' target="..."'
+            $key = sprintf(' %s="', $attribute);
+            if (strpos($item[$attribute], $key) === 0) {
+                $this->setAttribute($attribute, substr($item[$attribute], strlen($key), -1));
+            } else {
+                $this->setAttribute($attribute, $item[$attribute]);
             }
         }
 
@@ -94,9 +86,6 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         return implode(' ', $this->itemClass);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTag(): string
     {
         return $this->item['isActive'] ? 'strong' : 'a';
@@ -104,20 +93,22 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
 
     /**
      * Initialize the item classes.
-     *
-     * @return void
      */
     private function initializeItemClasses(): void
     {
-        if ($this->item['class']) {
-            $classes = StringUtil::trimsplit(' ', $this->item['class']);
-            foreach ($classes as $class) {
-                $this->itemClass[] = $class;
-            }
-
-            if (in_array('trail', $this->itemClass)) {
-                $this->itemClass[] = 'active';
-            }
+        if (! $this->item['class']) {
+            return;
         }
+
+        $classes = StringUtil::trimsplit(' ', $this->item['class']);
+        foreach ($classes as $class) {
+            $this->itemClass[] = $class;
+        }
+
+        if (! in_array('trail', $this->itemClass)) {
+            return;
+        }
+
+        $this->itemClass[] = 'active';
     }
 }
