@@ -2,8 +2,24 @@
 Changelog
 =========
 
+2.2.2 (2022-04-20)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.4...2.2.0)
+
+### Changed
+
+ - Bump minimum PHP version to 7.4
+ - Bump Symfony requirements to ^4.4 or ^5.4
+ - Bump Contao requirements to ^4.9 or ^4.13
+ - Changed coding standard
+
+
 2.1.4 (2019-06-11)
 ------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.3...2.1.4)
+
 
 ### Enhanced
 
@@ -16,6 +32,7 @@ Changelog
 ### Changed
 
  - Update travis configuration
+
 
 2.1.3 (2018-08-27)
 ------------------
@@ -31,7 +48,7 @@ Changelog
 [Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.1.1...2.1.2)
 
  - Fix tag of first list.
- 
+
 
 2.1.1 (2018-06-28)
 ------------------
@@ -50,12 +67,14 @@ Changelog
  - Automatically add dropdown-divider if folderpage not first item.
  - Fix issue with navigations having more than 2 levels.
 
+
 2.0.0 (2018-01-05)
 ------------------
 
 [Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.0.0-beta...2.0.0)
 
  - Support Metapalettes v2.0
+
 
 2.0.0-beta1 (2017-10-04)
 ------------------------
