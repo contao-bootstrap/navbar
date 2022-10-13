@@ -11,3 +11,4 @@ services:
   ContaoBootstrap\Navbar\EventListener\Dca\ModuleDcaListener:
     arguments:
       - '@contao_bootstrap.environment'
+      - '@netzmacht.contao_toolkit.contao.input_adapter'

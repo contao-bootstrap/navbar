@@ -61,7 +61,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
                     'inputType'        => 'select',
                     'options_callback' => ['contao_bootstrap.core.listener.module_dca', 'getAllModules'],
                     'eval'             => [
-                        'style'              => 'width: 250px',
+                        'style'              => 'width: 100%',
                         'includeBlankOption' => true,
                         'chosen'             => true,
                     ],

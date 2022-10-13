@@ -18,13 +18,6 @@ use function substr;
 abstract class AbstractItemHelper extends Attributes implements ItemHelper
 {
     /**
-     * Current item.
-     *
-     * @var array<string,mixed>
-     */
-    protected array $item;
-
-    /**
      * Item classes.
      *
      * @var list<string>
@@ -36,21 +29,24 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      *
      * @throws InvalidArgumentException If a broken html attribute is created.
      */
-    public function __construct(array $item)
+    public function __construct(protected readonly array $item)
     {
         parent::__construct();
-
-        $this->item = $item;
 
         if ($this->getTag() === 'a') {
             $this->setAttribute('href', $item['href']);
             $this->setAttribute('itemprop', 'url');
+            $this->addClass('nav-link');
 
             if ($this->item['nofollow']) {
                 $this->setAttribute('rel', 'nofollow');
             }
         } else {
             $this->setAttribute('itemprop', 'name');
+        }
+
+        if ($item['isActive']) {
+            $this->addClass('active');
         }
 
         $attributes = ['accesskey', 'tabindex', 'target'];
@@ -74,16 +70,15 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         $this->initializeItemClasses();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getItemClass(bool $asArray = false)
+    public function getItemClass(): string
     {
-        if ($asArray) {
-            return $this->itemClass;
-        }
-
         return implode(' ', $this->itemClass);
+    }
+
+    /** {@inheritdoc}*/
+    public function getItemClassAsArray(): array
+    {
+        return $this->itemClass;
     }
 
     public function getTag(): string

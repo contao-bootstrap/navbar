@@ -16,10 +16,8 @@ use ContaoBootstrap\Navbar\ContaoBootstrapNavbarBundle;
  */
 final class Plugin implements BundlePluginInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getBundles(ParserInterface $parser)
+    /** {@inheritdoc} */
+    public function getBundles(ParserInterface $parser): array
     {
         $bundleConfig = BundleConfig::create(ContaoBootstrapNavbarBundle::class)
             ->setLoadAfter([ContaoCoreBundle::class, ContaoBootstrapCoreBundle::class]);

@@ -24,6 +24,11 @@
                 <referencedProperty name="Contao\ModuleModel::$bs_inNavbar"/>
             </errorLevel>
         </UndefinedMagicPropertyAssignment>
+        <UndefinedMagicPropertyFetch>
+            <errorLevel type="suppress">
+                <referencedProperty name="Contao\DataContainer::$currentPid"/>
+            </errorLevel>
+        </UndefinedMagicPropertyFetch>
     </issueHandlers>
 
     <universalObjectCrates>

@@ -27,9 +27,6 @@ use function trim;
 /** @FrontendModule("bs_navbar", category="navigationMenu") */
 final class NavbarFrontendModuleController extends AbstractFrontendModuleController
 {
-    /** @var Adapter<Controller> */
-    private Adapter $controllerAdapter;
-
     /** @param Adapter<Controller> $controllerAdapter */
     public function __construct(
         TemplateRenderer $templateRenderer,
@@ -37,22 +34,19 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
         ResponseTagger $responseTagger,
         RouterInterface $router,
         TranslatorInterface $translator,
-        Adapter $controllerAdapter
+        private readonly Adapter $controllerAdapter,
     ) {
         parent::__construct($templateRenderer, $scopeMatcher, $responseTagger, $router, $translator);
-
-        $this->controllerAdapter = $controllerAdapter;
     }
 
     /**
      * {@inheritDoc}
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @psalm-suppress UndefinedMagicPropertyFetch
      */
     protected function prepareTemplateData(array $data, Request $request, Model $model): array
     {
-        assert($model instanceof ModuleModel);
-
         $config  = StringUtil::deserialize($model->bs_navbarModules, true);
         $modules = [];
         $models  = $this->prefetchModules($config);

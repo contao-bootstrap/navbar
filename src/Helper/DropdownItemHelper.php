@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Navbar\Helper;
 
-class DropdownItemHelper extends AbstractItemHelper
+final class DropdownItemHelper extends AbstractItemHelper
 {
     /**
      * {@inheritdoc}
