@@ -38,7 +38,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
             $this->setAttribute('itemprop', 'url');
             $this->addClass('nav-link');
 
-            if ($this->item['nofollow']) {
+            if (! empty($this->item['nofollow'])) {
                 $this->setAttribute('rel', 'nofollow');
             }
         } else {

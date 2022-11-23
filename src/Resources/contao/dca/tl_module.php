@@ -51,34 +51,34 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['bs_addBrand'] = [
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['bs_navbarModules'] = [
     'exclude'   => true,
-    'inputType' => 'multiColumnWizard',
-    'eval'      => [
-        'tl_class'     => 'clr ctb-mcw ctb-navbar-mcw',
-        'columnFields' =>
-            [
-                'module'   => [
-                    'label'            => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_module'],
-                    'inputType'        => 'select',
-                    'options_callback' => ['contao_bootstrap.core.listener.module_dca', 'getAllModules'],
-                    'eval'             => [
-                        'style'              => 'width: 100%',
-                        'includeBlankOption' => true,
-                        'chosen'             => true,
-                    ],
-                ],
-                'cssClass' => [
-                    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_cssClass'],
-                    'inputType' => 'text',
-                    'eval'      => ['rgxp' => 'txt'],
-                ],
-
-                'inactive' => [
-                    'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_inactive'],
-                    'inputType' => 'checkbox',
-                    'eval'      => [],
-                ],
+    'inputType' => 'group',
+    'palette'   => ['module', 'cssClass', 'inactive'],
+    'fields'    => [
+        'module'   => [
+            'label'            => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_module'],
+            'inputType'        => 'select',
+            'options_callback' => ['contao_bootstrap.core.listener.module_dca', 'getAllModules'],
+            'eval'             => [
+                'includeBlankOption' => true,
+                'chosen'             => true,
+                'tl_class'           => 'w50',
             ],
+        ],
+        'cssClass' => [
+            'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_cssClass'],
+            'inputType' => 'text',
+            'eval'      => [
+                'rgxp'     => 'txt',
+                'tl_class' => 'w50',
+            ],
+        ],
+        'inactive' => [
+            'label'     => &$GLOBALS['TL_LANG']['tl_module']['bs_navbarModules_inactive'],
+            'inputType' => 'checkbox',
+            'eval'      => ['tl_class' => 'w50'],
+        ],
     ],
+    'eval'      => ['tl_class' => 'clr ctb-mcw ctb-navbar-mcw'],
     'sql'       => 'blob NULL',
 ];
 

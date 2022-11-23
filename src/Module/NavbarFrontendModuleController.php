@@ -24,7 +24,7 @@ use function assert;
 use function implode;
 use function trim;
 
-/** @FrontendModule("bs_navbar", category="navigationMenu") */
+/** @FrontendModule("bs_navbar", category="navigationMenu", template="mod_bs_navbar") */
 final class NavbarFrontendModuleController extends AbstractFrontendModuleController
 {
     /** @param Adapter<Controller> $controllerAdapter */
