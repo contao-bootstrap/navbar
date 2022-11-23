@@ -344,12 +344,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.netzmacht.de/contao-bootstrap/core.git",
-                "reference": "c5663d2f757342a6ad4602fa9bd9ecacf635f812"
+                "reference": "1327b8b54b512f9987046a09f1c7c0d918760c27"
             },
             "require": {
                 "contao-community-alliance/meta-palettes": "^2.0",
                 "contao/core-bundle": "^4.13 || ^5.0",
-                "doctrine/dbal": "^3.3",
+                "doctrine/dbal": "^3.4",
                 "netzmacht/contao-toolkit": "^3.8 || ^4.0",
                 "php": "^8.1",
                 "symfony/config": "^5.4 || ^6.0",
@@ -380,9 +380,9 @@
             "type": "contao-bundle",
             "extra": {
                 "branch-alias": {
+                    "dev-bootstrap5": "3.0.x-dev",
                     "dev-develop": "2.2.x-dev",
-                    "dev-master": "2.1.x-dev",
-                    "dev-bootstrap5": "3.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 },
                 "contao": {
                     "transifex": {
@@ -433,7 +433,7 @@
                 "wiki": "http://contao-bootstrap.netzmacht.de",
                 "source": "https://github.com/contao-bootstrap/core"
             },
-            "time": "2022-10-10T12:47:29+00:00"
+            "time": "2022-11-23T09:47:52+00:00"
         },
         {
             "name": "contao-community-alliance/meta-palettes",
