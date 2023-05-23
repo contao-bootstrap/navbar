@@ -47,9 +47,8 @@
   },
   "require-dev": {
     "contao/manager-plugin": "^2.0",
-    "doctrine/coding-standard": "^10.0.",
+    "doctrine/coding-standard": "^11.0.",
     "phpcq/coding-standard": "^2.1.2",
-    "phpcq/plugin-api": "1.x-dev",
     "phpcq/runner-bootstrap": "1.x-dev"
   },
   "conflict": {
@@ -73,7 +72,8 @@
       "contao-components/installer": false,
       "contao/manager-plugin": true,
       "dealerdirect/phpcodesniffer-composer-installer": true,
-      "contao-community-alliance/composer-plugin": true
+      "contao-community-alliance/composer-plugin": true,
+      "php-http/discovery": true
     },
     "sort-packages": true
   },

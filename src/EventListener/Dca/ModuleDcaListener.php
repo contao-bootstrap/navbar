@@ -29,6 +29,7 @@ final class ModuleDcaListener
             return;
         }
 
+        /** @psalm-suppress RedundantCastGivenDocblockType */
         $this->environment->enterContext(ThemeContext::forTheme((int) $dataContainer->currentPid));
     }
 
