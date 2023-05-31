@@ -36,7 +36,6 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         if ($this->getTag() === 'a') {
             $this->setAttribute('href', $item['href']);
             $this->setAttribute('itemprop', 'url');
-            $this->addClass('nav-link');
 
             if (! empty($this->item['nofollow'])) {
                 $this->setAttribute('rel', 'nofollow');
@@ -91,10 +90,6 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      */
     private function initializeItemClasses(): void
     {
-        if (! $this->item['class']) {
-            return;
-        }
-
         $classes = StringUtil::trimsplit(' ', $this->item['class']);
         foreach ($classes as $class) {
             $this->itemClass[] = $class;
@@ -104,6 +99,6 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
             return;
         }
 
-        $this->itemClass[] = 'active';
+        $this->addClass('active');
     }
 }

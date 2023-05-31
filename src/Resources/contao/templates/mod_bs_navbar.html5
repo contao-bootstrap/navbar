@@ -11,8 +11,8 @@
         <button
                 class="navbar-toggler collapsed"
                 type="button"
-                data-toggle="collapse"
-                data-target="#navbar-responsive-<?= $this->id ?>"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar-responsive-<?= $this->id ?>"
                 aria-controls="navbar-responsive-<?= $this->id ?>"
                 aria-expanded="false"
                 aria-label="<?= $this->togglerLabel ?>">
