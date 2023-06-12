@@ -4,7 +4,7 @@ Contao-Bootstrap Navigation
 [![Version](http://img.shields.io/packagist/v/contao-bootstrap/navbar.svg?style=for-the-badge&label=Latest)](http://packagist.org/packages/contao-bootstrap/navbar)
 [![GitHub issues](https://img.shields.io/github/issues/contao-bootstrap/navbar.svg?style=for-the-badge&logo=github)](https://github.com/contao-bootstrap/navbar/issues)
 [![License](http://img.shields.io/packagist/l/contao-bootstrap/navbar.svg?style=for-the-badge&label=License)](http://packagist.org/packages/contao-bootstrap/navbar)
-[![Build Status](https://img.shields.io/github/workflow/status/contao-bootstrap/navbar/Code%20Quality%20Diagnostics?logo=githubactions&logoColor=%23fff&style=for-the-badge)](https://github.com/contao-bootstrap/navbar/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/contao-bootstrap/navbar/contao-bootrap-navbar?logo=githubactions&logoColor=%23fff&style=for-the-badge)](https://github.com/contao-bootstrap/navbar/actions)
 [![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/navbar.svg?style=for-the-badge&label=Downloads)](http://packagist.org/packages/contao-bootstrap/navbar)
 
 This extension provides Bootstrap integration into Contao.
@@ -61,11 +61,12 @@ class AppKernel
     {
         $bundles = [
             // ...
-            new Contao\CoreBundle\HttpKernel\Bundle\ContaoModuleBundle('metapalettes', $this->getRootDir()),
-            new Contao\CoreBundle\HttpKernel\Bundle\ContaoModuleBundle('multicolumnwizard', $this->getRootDir()),
-            new Netzmacht\Html\NetzmachtHtmlBundle(),
-            new ContaoBootstrap\Core\ContaoBootstrapCoreBundle(),
-            new ContaoBootstrap\Grid\ContaoBootstrapNavbarBundle()
+            new \ContaoCommunityAlliance\MetaPalettes\CcaMetaPalettesBundle(),
+            new \Netzmacht\Contao\Toolkit\Bundle\NetzmachtContaoToolkitBundle(),
+            new \Mvo\ContaoGroupWidget\MvoContaoGroupWidgetBundle(),
+            new \Netzmacht\Html\NetzmachtHtmlBundle(),
+            new \ContaoBootstrap\Core\ContaoBootstrapCoreBundle(),
+            new \ContaoBootstrap\Grid\ContaoBootstrapNavbarBundle()
         ];
     }
 }
