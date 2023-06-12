@@ -2,6 +2,16 @@
 Changelog
 =========
 
+3.0.0 (2023-06-12)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.2.0...3.0.0)
+
+### Changed
+
+ - Use mvo/contao-group-widget instead of multi column wizard
+ - Adjust for Bootstrap 5
+
 2.2.2 (2022-04-20)
 ------------------
 
