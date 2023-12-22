@@ -11,8 +11,8 @@ use Netzmacht\Html\Exception\InvalidArgumentException;
 use function implode;
 use function in_array;
 use function sprintf;
+use function str_starts_with;
 use function strlen;
-use function strpos;
 use function substr;
 
 abstract class AbstractItemHelper extends Attributes implements ItemHelper
@@ -56,7 +56,8 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
 
             // Detect if attribute is prerendered, for example target is as ' target="..."'
             $key = sprintf(' %s="', $attribute);
-            if (strpos($item[$attribute], $key) === 0) {
+            /** @psalm-suppress PossiblyUndefinedArrayOffset */
+            if (str_starts_with($item[$attribute], $key)) {
                 $this->setAttribute($attribute, substr($item[$attribute], strlen($key), -1));
             } else {
                 $this->setAttribute($attribute, $item[$attribute]);
@@ -74,7 +75,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         return implode(' ', $this->itemClass);
     }
 
-    /** {@inheritdoc}*/
+    /** {@inheritDoc}*/
     public function getItemClassAsArray(): array
     {
         return $this->itemClass;

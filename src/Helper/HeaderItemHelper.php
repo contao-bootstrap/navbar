@@ -48,7 +48,7 @@ final class HeaderItemHelper extends Attributes implements ItemHelper
         return implode(' ', $this->itemClass);
     }
 
-    /** {@inheritdoc}*/
+    /** {@inheritDoc}*/
     public function getItemClassAsArray(): array
     {
         return $this->itemClass;
