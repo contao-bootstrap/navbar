@@ -50,7 +50,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
 
         $attributes = ['accesskey', 'tabindex', 'target'];
         foreach ($attributes as $attribute) {
-            if (! ($item[$attribute] ?? false)) {
+            if (! (bool) ($item[$attribute] ?? false)) {
                 continue;
             }
 
