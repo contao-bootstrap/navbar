@@ -62,11 +62,6 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
         }
 
         $class = $data['class'];
-        $cssID = $data['cssID'];
-
-        if (! isset($cssID[1]) || $cssID[1] === '') {
-            $class = trim($class . ' navbar-light bg-light');
-        }
 
         if ($model->bs_isResponsive && $model->bs_toggleableSize) {
             $class = trim($class . ' navbar-expand-' . $model->bs_toggleableSize);
