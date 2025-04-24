@@ -7,6 +7,7 @@ namespace ContaoBootstrap\Navbar\Helper;
 use Contao\StringUtil;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
+use Override;
 
 use function implode;
 use function in_array;
@@ -70,17 +71,20 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         $this->initializeItemClasses();
     }
 
+    #[Override]
     public function getItemClass(): string
     {
         return implode(' ', $this->itemClass);
     }
 
     /** {@inheritDoc}*/
+    #[Override]
     public function getItemClassAsArray(): array
     {
         return $this->itemClass;
     }
 
+    #[Override]
     public function getTag(): string
     {
         return $this->item['isActive'] ? 'strong' : 'a';

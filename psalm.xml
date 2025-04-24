@@ -2,6 +2,7 @@
 <psalm
         errorLevel="3"
         hideExternalErrors="true"
+        findUnusedCode="false"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="https://getpsalm.org/schema/config"
         xsi:schemaLocation="https://getpsalm.org/schema/config https://getpsalm.org/schema/config"
@@ -11,24 +12,11 @@
     </projectFiles>
 
     <issueHandlers>
-        <UndefinedMagicPropertyFetch>
-            <errorLevel type="suppress">
-                <referencedProperty name="Contao\ModuleModel::$bs_navbarModules"/>
-                <referencedProperty name="Contao\ModuleModel::$bs_inNavbar"/>
-                <referencedProperty name="Contao\ModuleModel::$bs_isResponsive"/>
-                <referencedProperty name="Contao\ModuleModel::$bs_toggleableSize"/>
-            </errorLevel>
-        </UndefinedMagicPropertyFetch>
         <UndefinedMagicPropertyAssignment>
             <errorLevel type="suppress">
                 <referencedProperty name="Contao\ModuleModel::$bs_inNavbar"/>
             </errorLevel>
         </UndefinedMagicPropertyAssignment>
-        <UndefinedMagicPropertyFetch>
-            <errorLevel type="suppress">
-                <referencedProperty name="Contao\DataContainer::$currentPid"/>
-            </errorLevel>
-        </UndefinedMagicPropertyFetch>
     </issueHandlers>
 
     <universalObjectCrates>

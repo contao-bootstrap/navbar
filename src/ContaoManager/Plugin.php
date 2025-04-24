@@ -10,6 +10,7 @@ use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use ContaoBootstrap\Core\ContaoBootstrapCoreBundle;
 use ContaoBootstrap\Navbar\ContaoBootstrapNavbarBundle;
+use Override;
 
 /**
  * Contao manager plugin.
@@ -17,6 +18,7 @@ use ContaoBootstrap\Navbar\ContaoBootstrapNavbarBundle;
 final class Plugin implements BundlePluginInterface
 {
     /** {@inheritDoc} */
+    #[Override]
     public function getBundles(ParserInterface $parser): array
     {
         $bundleConfig = BundleConfig::create(ContaoBootstrapNavbarBundle::class)

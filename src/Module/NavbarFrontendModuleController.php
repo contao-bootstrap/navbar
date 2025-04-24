@@ -15,12 +15,12 @@ use Netzmacht\Contao\Toolkit\Controller\FrontendModule\AbstractFrontendModuleCon
 use Netzmacht\Contao\Toolkit\Response\ResponseTagger;
 use Netzmacht\Contao\Toolkit\Routing\RequestScopeMatcher;
 use Netzmacht\Contao\Toolkit\View\Template\TemplateRenderer;
+use Override;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 use function array_key_exists;
-use function assert;
 use function implode;
 use function trim;
 
@@ -45,6 +45,7 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @psalm-suppress UndefinedMagicPropertyFetch
      */
+    #[Override]
     protected function prepareTemplateData(array $data, Request $request, Model $model): array
     {
         $config  = StringUtil::deserialize($model->bs_navbarModules, true);
@@ -77,7 +78,6 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
      * Generate a frontend module.
      *
      * @param array<string,mixed> $module Module configuration.
-     * @param ModuleModel         $model  Module model.
      *
      * @return array<string,mixed>
      */
@@ -134,8 +134,6 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
 
             if ($collection instanceof Collection) {
                 foreach ($collection as $model) {
-                    assert($model instanceof ModuleModel);
-
                     $model->bs_inNavbar = true;
                     $models[$model->id] = $model;
                 }
