@@ -9,10 +9,10 @@ namespace ContaoBootstrap\Navbar\Helper;
  *
  * @psalm-suppress PropertyNotSetInConstructor - False detected issues. Parent constructors initializes them
  */
-class NavItemHelper extends AbstractItemHelper
+final class NavItemHelper extends AbstractItemHelper
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __construct(array $item)
     {
@@ -28,7 +28,7 @@ class NavItemHelper extends AbstractItemHelper
         $this->itemClass[] = 'dropdown';
         $this->addClass('dropdown-toggle');
 
-        $this->setAttribute('data-toggle', 'dropdown');
+        $this->setAttribute('data-bs-toggle', 'dropdown');
         $this->setAttribute('aria-haspopup', 'true');
         $this->setAttribute('aria-expanded', 'false');
     }

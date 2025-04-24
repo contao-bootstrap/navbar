@@ -23,13 +23,6 @@ use function in_array;
 final class HeaderItemHelper extends Attributes implements ItemHelper
 {
     /**
-     * Current item.
-     *
-     * @var array<string,mixed>
-     */
-    protected array $item;
-
-    /**
      * Item classes.
      *
      * @var list<string>
@@ -41,26 +34,24 @@ final class HeaderItemHelper extends Attributes implements ItemHelper
      *
      * @throws InvalidArgumentException When invalid attributes are given.
      */
-    public function __construct(array $item)
+    public function __construct(private readonly array $item)
     {
         parent::__construct();
 
-        $this->item = $item;
         $this->addClass('dropdown-header');
 
         $this->initializeItemClasses();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getItemClass(bool $asArray = false)
+    public function getItemClass(): string
     {
-        if ($asArray) {
-            return $this->itemClass;
-        }
-
         return implode(' ', $this->itemClass);
+    }
+
+    /** {@inheritDoc}*/
+    public function getItemClassAsArray(): array
+    {
+        return $this->itemClass;
     }
 
     public function getTag(): string

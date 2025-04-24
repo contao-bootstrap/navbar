@@ -1,5 +1,8 @@
 <!-- indexer::stop -->
 <nav class="navbar <?php echo $this->class;?>" <?php if($this->cssID): ?><?php echo $this->cssID; ?><?php endif; ?>>
+    <?php $this->block('container') ?>
+    <div class="container-fluid">
+    <?php $this->endblock() ?>
     <?php $this->block('content'); ?>
     <?php if($this->bs_addBrand): ?>
         <?php $this->insert($this->bs_navbarBrandTemplate); ?>
@@ -8,8 +11,8 @@
         <button
                 class="navbar-toggler collapsed"
                 type="button"
-                data-toggle="collapse"
-                data-target="#navbar-responsive-<?= $this->id ?>"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar-responsive-<?= $this->id ?>"
                 aria-controls="navbar-responsive-<?= $this->id ?>"
                 aria-expanded="false"
                 aria-label="<?= $this->togglerLabel ?>">
@@ -29,5 +32,6 @@
 
         <?php if($this->bs_isResponsive): ?></div><?php endif; ?>
     <?php $this->endblock(); ?>
+    </div>
 </nav>
 <!-- indexer::continue -->

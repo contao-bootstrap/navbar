@@ -24,12 +24,9 @@ use function assert;
 use function implode;
 use function trim;
 
-/** @FrontendModule("bs_navbar", category="navigationMenu") */
+/** @FrontendModule("bs_navbar", category="navigationMenu", template="mod_bs_navbar") */
 final class NavbarFrontendModuleController extends AbstractFrontendModuleController
 {
-    /** @var Adapter<Controller> */
-    private Adapter $controllerAdapter;
-
     /** @param Adapter<Controller> $controllerAdapter */
     public function __construct(
         TemplateRenderer $templateRenderer,
@@ -37,22 +34,19 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
         ResponseTagger $responseTagger,
         RouterInterface $router,
         TranslatorInterface $translator,
-        Adapter $controllerAdapter
+        private readonly Adapter $controllerAdapter,
     ) {
         parent::__construct($templateRenderer, $scopeMatcher, $responseTagger, $router, $translator);
-
-        $this->controllerAdapter = $controllerAdapter;
     }
 
     /**
      * {@inheritDoc}
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @psalm-suppress UndefinedMagicPropertyFetch
      */
     protected function prepareTemplateData(array $data, Request $request, Model $model): array
     {
-        assert($model instanceof ModuleModel);
-
         $config  = StringUtil::deserialize($model->bs_navbarModules, true);
         $modules = [];
         $models  = $this->prefetchModules($config);
@@ -68,11 +62,6 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
         }
 
         $class = $data['class'];
-        $cssID = $data['cssID'];
-
-        if (! isset($cssID[1]) || $cssID[1] === '') {
-            $class = trim($class . ' navbar-light bg-light');
-        }
 
         if ($model->bs_isResponsive && $model->bs_toggleableSize) {
             $class = trim($class . ' navbar-expand-' . $model->bs_toggleableSize);

@@ -2,6 +2,31 @@
 Changelog
 =========
 
+3.0.2 (2024-10-29)
+------------------
+
+### Fixed
+
+- Remove automatically setting of `navbar-light` class, since Bootstrap 5.2 the class is deprecated and conflicts with
+  dark mode
+
+3.0.1 (2024-01-26)
+------------------
+
+### Added
+
+- Add compatibility with Contao 5.3
+
+3.0.0 (2023-06-12)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/navbar/compare/2.2.0...3.0.0)
+
+### Changed
+
+ - Use mvo/contao-group-widget instead of multi column wizard
+ - Adjust for Bootstrap 5
+
 2.2.2 (2022-04-20)
 ------------------
 

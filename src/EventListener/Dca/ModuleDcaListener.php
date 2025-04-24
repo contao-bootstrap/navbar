@@ -4,20 +4,18 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Navbar\EventListener\Dca;
 
+use Contao\CoreBundle\Framework\Adapter;
 use Contao\CoreBundle\ServiceAnnotation\Callback;
+use Contao\DataContainer;
 use Contao\Input;
 use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Core\Environment\ThemeContext;
 
-use function defined;
-
 final class ModuleDcaListener
 {
-    private Environment $environment;
-
-    public function __construct(Environment $environment)
+    /** @param Adapter<Input> $inputAdapter */
+    public function __construct(private readonly Environment $environment, private readonly Adapter $inputAdapter)
     {
-        $this->environment = $environment;
     }
 
     /**
@@ -25,17 +23,14 @@ final class ModuleDcaListener
      *
      * @Callback(table="tl_module", target="config.onload")
      */
-    public function enterContext(): void
+    public function enterContext(DataContainer $dataContainer): void
     {
-        if (Input::get('act') !== 'edit') {
+        if ($this->inputAdapter->get('act') !== 'edit') {
             return;
         }
 
-        if (! defined('CURRENT_ID')) {
-            return;
-        }
-
-        $this->environment->enterContext(ThemeContext::forTheme((int) CURRENT_ID));
+        /** @psalm-suppress RedundantCastGivenDocblockType */
+        $this->environment->enterContext(ThemeContext::forTheme((int) $dataContainer->currentPid));
     }
 
     /**
