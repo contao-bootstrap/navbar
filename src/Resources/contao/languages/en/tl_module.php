@@ -1,11 +1,6 @@
 <?php
 
-/**
- * @package   contao-bootstrap
- * @author    David Molineus <david.molineus@netzmacht.de>
- * @license   LGPL 3+
- * @copyright 2013-2017 netzmacht creative David Molineus
- */
+declare(strict_types=1);
 
 $GLOBALS['TL_LANG']['tl_module']['bs_addHeader'][0]              = 'Add header section';
 $GLOBALS['TL_LANG']['tl_module']['bs_addHeader'][1]              = 'Navbar has no header section in which the website title and the toggle button of the responsive navbar is located.';
