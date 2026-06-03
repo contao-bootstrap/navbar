@@ -21,6 +21,7 @@ final class NavItemHelper extends AbstractItemHelper
         $this->addClass('nav-link');
         $this->itemClass[] = 'nav-item';
 
+        /** @psalm-suppress RiskyTruthyFalsyComparison */
         if (! ($this->item['subitems'] ?? null)) {
             return;
         }
