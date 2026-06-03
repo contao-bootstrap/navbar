@@ -13,6 +13,7 @@ namespace ContaoBootstrap\Navbar\Helper;
 use Contao\StringUtil;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
+use Override;
 
 use function implode;
 use function in_array;
@@ -22,13 +23,6 @@ use function in_array;
  */
 final class HeaderItemHelper extends Attributes implements ItemHelper
 {
-    /**
-     * Current item.
-     *
-     * @var array<string,mixed>
-     */
-    protected array $item;
-
     /**
      * Item classes.
      *
@@ -41,28 +35,29 @@ final class HeaderItemHelper extends Attributes implements ItemHelper
      *
      * @throws InvalidArgumentException When invalid attributes are given.
      */
-    public function __construct(array $item)
+    public function __construct(private readonly array $item)
     {
         parent::__construct();
 
-        $this->item = $item;
         $this->addClass('dropdown-header');
 
         $this->initializeItemClasses();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getItemClass(bool $asArray = false)
+    #[Override]
+    public function getItemClass(): string
     {
-        if ($asArray) {
-            return $this->itemClass;
-        }
-
         return implode(' ', $this->itemClass);
     }
 
+    /** {@inheritDoc}*/
+    #[Override]
+    public function getItemClassAsArray(): array
+    {
+        return $this->itemClass;
+    }
+
+    #[Override]
     public function getTag(): string
     {
         return 'div';

@@ -11,3 +11,10 @@ services:
   ContaoBootstrap\Navbar\EventListener\Dca\ModuleDcaListener:
     arguments:
       - '@contao_bootstrap.environment'
+      - '@netzmacht.contao_toolkit.contao.input_adapter'
+
+  ContaoBootstrap\Navbar\Migration\NavbarModulesMigration:
+    arguments:
+      - '@database_connection'
+    tags:
+      - { name: 'contao.migration' }

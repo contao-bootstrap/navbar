@@ -14,34 +14,25 @@ use function substr;
 /**
  * Class NavigationHelper provides an navigation template helper for the navbar navigation.
  */
-class NavigationHelper
+final class NavigationHelper
 {
-    /**
-     * Navigation item template.
-     */
-    private FrontendTemplate $template;
-
     /**
      * List attributes.
      */
-    private Attributes $attributes;
+    private readonly Attributes $attributes;
 
     /**
      * Html tag.
      */
-    private string $tag;
+    private readonly string $tag;
 
     /**
      * Navigation level.
      */
-    private int $level;
+    private readonly int $level;
 
-    /**
-     * @param FrontendTemplate $template Frontend template.
-     */
-    public function __construct(FrontendTemplate $template)
+    public function __construct(private readonly FrontendTemplate $template)
     {
-        $this->template   = $template;
         $this->attributes = new Attributes();
         $this->level      = (int) substr($this->template->level, 6);
 
@@ -126,7 +117,7 @@ class NavigationHelper
     /**
      * Get the page type of the current navigation page.
      */
-    private function getPageType(): ?string
+    private function getPageType(): string|null
     {
         $page = PageModel::findByPk($this->template->pid);
         if ($page instanceof PageModel) {

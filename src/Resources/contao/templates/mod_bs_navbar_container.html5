@@ -1,6 +1,4 @@
 <?php $this->extend('mod_bs_navbar'); ?>
-<?php $this->block('content'); ?>
+<?php $this->block('container'); ?>
 <div class="container">
-    <?php $this->parent(); ?>
-</div>
 <?php $this->endblock();

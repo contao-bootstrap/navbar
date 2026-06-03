@@ -16,13 +16,16 @@ namespace ContaoBootstrap\Navbar\Helper;
 interface ItemHelper
 {
     /**
-     * Get the item class as combined st ring or as array.
-     *
-     * @param bool $asArray If true an array is returned.
-     *
-     * @return mixed
+     * Get the item class as combined string.
      */
-    public function getItemClass(bool $asArray = false);
+    public function getItemClass(): string;
+
+    /**
+     * Get the item class as string list.
+     *
+     * @return list<string>
+     */
+    public function getItemClassAsArray(): array;
 
     /**
      * Get the tag of the item depending on active state.

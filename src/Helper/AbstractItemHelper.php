@@ -7,23 +7,17 @@ namespace ContaoBootstrap\Navbar\Helper;
 use Contao\StringUtil;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
+use Override;
 
 use function implode;
 use function in_array;
 use function sprintf;
+use function str_starts_with;
 use function strlen;
-use function strpos;
 use function substr;
 
 abstract class AbstractItemHelper extends Attributes implements ItemHelper
 {
-    /**
-     * Current item.
-     *
-     * @var array<string,mixed>
-     */
-    protected array $item;
-
     /**
      * Item classes.
      *
@@ -36,32 +30,35 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      *
      * @throws InvalidArgumentException If a broken html attribute is created.
      */
-    public function __construct(array $item)
+    public function __construct(protected readonly array $item)
     {
         parent::__construct();
-
-        $this->item = $item;
 
         if ($this->getTag() === 'a') {
             $this->setAttribute('href', $item['href']);
             $this->setAttribute('itemprop', 'url');
 
-            if ($this->item['nofollow']) {
+            if (! empty($this->item['nofollow'])) {
                 $this->setAttribute('rel', 'nofollow');
             }
         } else {
             $this->setAttribute('itemprop', 'name');
         }
 
+        if ($item['isActive']) {
+            $this->addClass('active');
+        }
+
         $attributes = ['accesskey', 'tabindex', 'target'];
         foreach ($attributes as $attribute) {
-            if (! $item[$attribute]) {
+            if (! (bool) ($item[$attribute] ?? false)) {
                 continue;
             }
 
             // Detect if attribute is prerendered, for example target is as ' target="..."'
             $key = sprintf(' %s="', $attribute);
-            if (strpos($item[$attribute], $key) === 0) {
+            /** @psalm-suppress PossiblyUndefinedArrayOffset */
+            if (str_starts_with($item[$attribute], $key)) {
                 $this->setAttribute($attribute, substr($item[$attribute], strlen($key), -1));
             } else {
                 $this->setAttribute($attribute, $item[$attribute]);
@@ -74,18 +71,20 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         $this->initializeItemClasses();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getItemClass(bool $asArray = false)
+    #[Override]
+    public function getItemClass(): string
     {
-        if ($asArray) {
-            return $this->itemClass;
-        }
-
         return implode(' ', $this->itemClass);
     }
 
+    /** {@inheritDoc}*/
+    #[Override]
+    public function getItemClassAsArray(): array
+    {
+        return $this->itemClass;
+    }
+
+    #[Override]
     public function getTag(): string
     {
         return $this->item['isActive'] ? 'strong' : 'a';
@@ -96,10 +95,6 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      */
     private function initializeItemClasses(): void
     {
-        if (! $this->item['class']) {
-            return;
-        }
-
         $classes = StringUtil::trimsplit(' ', $this->item['class']);
         foreach ($classes as $class) {
             $this->itemClass[] = $class;
@@ -109,6 +104,6 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
             return;
         }
 
-        $this->itemClass[] = 'active';
+        $this->addClass('active');
     }
 }

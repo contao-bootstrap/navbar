@@ -10,16 +10,16 @@ use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use ContaoBootstrap\Core\ContaoBootstrapCoreBundle;
 use ContaoBootstrap\Navbar\ContaoBootstrapNavbarBundle;
+use Override;
 
 /**
  * Contao manager plugin.
  */
 final class Plugin implements BundlePluginInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getBundles(ParserInterface $parser)
+    /** {@inheritDoc} */
+    #[Override]
+    public function getBundles(ParserInterface $parser): array
     {
         $bundleConfig = BundleConfig::create(ContaoBootstrapNavbarBundle::class)
             ->setLoadAfter([ContaoCoreBundle::class, ContaoBootstrapCoreBundle::class]);

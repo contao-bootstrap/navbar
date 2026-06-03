@@ -15,21 +15,18 @@ use Netzmacht\Contao\Toolkit\Controller\FrontendModule\AbstractFrontendModuleCon
 use Netzmacht\Contao\Toolkit\Response\ResponseTagger;
 use Netzmacht\Contao\Toolkit\Routing\RequestScopeMatcher;
 use Netzmacht\Contao\Toolkit\View\Template\TemplateRenderer;
+use Override;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 use function array_key_exists;
-use function assert;
 use function implode;
 use function trim;
 
-/** @FrontendModule("bs_navbar", category="navigationMenu") */
+/** @FrontendModule("bs_navbar", category="navigationMenu", template="mod_bs_navbar") */
 final class NavbarFrontendModuleController extends AbstractFrontendModuleController
 {
-    /** @var Adapter<Controller> */
-    private Adapter $controllerAdapter;
-
     /** @param Adapter<Controller> $controllerAdapter */
     public function __construct(
         TemplateRenderer $templateRenderer,
@@ -37,22 +34,20 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
         ResponseTagger $responseTagger,
         RouterInterface $router,
         TranslatorInterface $translator,
-        Adapter $controllerAdapter
+        private readonly Adapter $controllerAdapter,
     ) {
         parent::__construct($templateRenderer, $scopeMatcher, $responseTagger, $router, $translator);
-
-        $this->controllerAdapter = $controllerAdapter;
     }
 
     /**
      * {@inheritDoc}
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @psalm-suppress UndefinedMagicPropertyFetch
      */
+    #[Override]
     protected function prepareTemplateData(array $data, Request $request, Model $model): array
     {
-        assert($model instanceof ModuleModel);
-
         $config  = StringUtil::deserialize($model->bs_navbarModules, true);
         $modules = [];
         $models  = $this->prefetchModules($config);
@@ -68,11 +63,6 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
         }
 
         $class = $data['class'];
-        $cssID = $data['cssID'];
-
-        if (! isset($cssID[1]) || $cssID[1] === '') {
-            $class = trim($class . ' navbar-light bg-light');
-        }
 
         if ($model->bs_isResponsive && $model->bs_toggleableSize) {
             $class = trim($class . ' navbar-expand-' . $model->bs_toggleableSize);
@@ -88,7 +78,6 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
      * Generate a frontend module.
      *
      * @param array<string,mixed> $module Module configuration.
-     * @param ModuleModel         $model  Module model.
      *
      * @return array<string,mixed>
      */
@@ -145,8 +134,6 @@ final class NavbarFrontendModuleController extends AbstractFrontendModuleControl
 
             if ($collection instanceof Collection) {
                 foreach ($collection as $model) {
-                    assert($model instanceof ModuleModel);
-
                     $model->bs_inNavbar = true;
                     $models[$model->id] = $model;
                 }
